@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, Heart, Code2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -12,43 +13,27 @@ const navLinks = [
 ]
 
 const socials = [
-  {
-    label: 'GitHub',
-    icon: <Github size={18} />,
-    href: 'https://github.com/pavanmanjunath18',
-  },
-  {
-    label: 'LinkedIn',
-    icon: <Linkedin size={18} />,
-    href: 'https://linkedin.com/in/pavanmallipudi',
-  },
-  {
-    label: 'Email',
-    icon: <Mail size={18} />,
-    href: 'mailto:pavan.mallipudi@asu.edu',
-  },
+  { label: 'GitHub', icon: <Github size={18} />, href: 'https://github.com/pavanmanjunath18' },
+  { label: 'LinkedIn', icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/pavanmallipudi' },
+  { label: 'Email', icon: <Mail size={18} />, href: 'mailto:pavan.mallipudi@asu.edu' },
 ]
 
 export default function Footer() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <footer className="bg-[#080808] border-t border-white/5 relative overflow-hidden">
-      {/* Top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/30 to-transparent" />
+    <footer className="bg-[#050505] border-t border-white/5 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/25 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-start pb-8 border-b border-white/5">
-          {/* Left — branding */}
+          {/* Branding */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#FF8000] to-[#FF6B00] flex items-center justify-center text-white font-bold font-display text-sm">
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF8000] to-[#FF6B00] flex items-center justify-center text-white font-bold font-display text-sm glow-sm">
                 PM
               </div>
               <span className="font-display font-semibold text-white">Pavan Mallipudi</span>
@@ -63,18 +48,16 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Center — nav links */}
+          {/* Nav */}
           <div className="md:text-center">
-            <h4 className="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-4">
-              Navigation
-            </h4>
+            <h4 className="text-gray-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">Navigation</h4>
             <nav className="grid grid-cols-2 gap-x-4 gap-y-2 md:inline-grid">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-gray-400 text-sm hover:text-white transition-colors duration-200 text-left md:text-center"
+                  className="text-gray-400 text-sm hover:text-white hover:text-[#FFB347] transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -82,23 +65,22 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Right — socials */}
+          {/* Socials */}
           <div className="md:text-right">
-            <h4 className="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-4">
-              Connect
-            </h4>
+            <h4 className="text-gray-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">Connect</h4>
             <div className="flex gap-3 md:justify-end">
               {socials.map((social) => (
-                <a
+                <motion.a
                   key={social.label}
                   href={social.href}
                   target={social.href.startsWith('http') ? '_blank' : undefined}
                   rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={social.label}
-                  className="p-2.5 rounded-xl glass border border-white/8 text-gray-400 hover:text-white hover:border-[#FF8000]/25 transition-all duration-200"
+                  whileHover={{ scale: 1.12, y: -2 }}
+                  className="p-2.5 rounded-xl glass border border-white/8 text-gray-400 hover:text-white hover:border-[#FF8000]/25 transition-colors duration-200"
                 >
                   {social.icon}
-                </a>
+                </motion.a>
               ))}
             </div>
             <p className="text-gray-600 text-xs mt-4 leading-relaxed">
@@ -109,16 +91,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-          <p>
-            © {new Date().getFullYear()} Pavan Venkata Manjunath Mallipudi. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Pavan Venkata Manjunath Mallipudi. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             Made with{' '}
-            <Heart size={12} className="text-[#FF8000] fill-[#FF8000]" />
+            <Heart size={11} className="text-[#FF8000] fill-[#FF8000]" />
             &nbsp;using{' '}
-            <Code2 size={12} className="text-[#FFB347]" />
+            <Code2 size={11} className="text-[#FFB347]" />
             &nbsp;React + Tailwind CSS
           </p>
         </div>

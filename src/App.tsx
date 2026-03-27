@@ -22,7 +22,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden cursor-none">
+    <div className="min-h-screen bg-[#080808] text-white overflow-x-hidden cursor-none">
       <CursorEffect />
       <Navbar scrollY={scrollY} />
       <main>

@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Github, ExternalLink, Star, ChevronRight } from 'lucide-react'
 import { projects, type Project } from '../data/projects'
 
@@ -21,10 +21,7 @@ const categoryColors: Record<string, string> = {
 }
 
 const categoryLabels: Record<string, string> = {
-  ml: 'ML / AI',
-  data: 'Data',
-  web: 'Web',
-  fullstack: 'Full-Stack',
+  ml: 'ML / AI', data: 'Data', web: 'Web', fullstack: 'Full-Stack',
 }
 
 const categoryAccents: Record<string, string> = {
@@ -34,6 +31,73 @@ const categoryAccents: Record<string, string> = {
   fullstack: 'from-[#FF6B00] to-[#FF8000]',
 }
 
+// ── 3D Tilt card wrapper ──────────────────────────────────────
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  const rotateX = useMotionValue(0)
+  const rotateY = useMotionValue(0)
+  const glareX = useMotionValue(50)
+  const glareY = useMotionValue(50)
+  const scale = useMotionValue(1)
+
+  const springRotateX = useSpring(rotateX, { damping: 30, stiffness: 300 })
+  const springRotateY = useSpring(rotateY, { damping: 30, stiffness: 300 })
+  const springScale = useSpring(scale, { damping: 30, stiffness: 300 })
+
+  const glareBackground = useTransform(
+    [glareX, glareY],
+    ([x, y]: number[]) =>
+      `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.07) 0%, transparent 60%)`
+  )
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    rotateX.set((y - 0.5) * -14)
+    rotateY.set((x - 0.5) * 14)
+    glareX.set(x * 100)
+    glareY.set(y * 100)
+    scale.set(1.025)
+  }
+
+  const handleMouseLeave = () => {
+    rotateX.set(0)
+    rotateY.set(0)
+    glareX.set(50)
+    glareY.set(50)
+    scale.set(1)
+  }
+
+  return (
+    <div style={{ perspective: '900px' }}>
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX: springRotateX,
+          rotateY: springRotateY,
+          scale: springScale,
+          transformStyle: 'preserve-3d',
+        }}
+        className={className}
+      >
+        {/* Glare overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none rounded-2xl z-10"
+          style={{ background: glareBackground }}
+        />
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+
+// ── Project card ──────────────────────────────────────────────
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
@@ -42,97 +106,83 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ translateY: -4 }}
-      className={`glass rounded-2xl border border-white/6 overflow-hidden group relative flex flex-col ${
-        project.featured ? 'ring-1 ring-[#FF8000]/20' : ''
-      }`}
     >
-      {/* Top gradient accent bar */}
-      <div
-        className={`h-0.5 bg-gradient-to-r ${categoryAccents[project.category]}`}
-      />
+      <TiltCard
+        className={`glass rounded-2xl border border-white/6 overflow-hidden group relative flex flex-col h-full ${
+          project.featured ? 'ring-1 ring-[#FF8000]/18' : ''
+        }`}
+      >
+        {/* Top accent bar */}
+        <div className={`h-[2px] bg-gradient-to-r ${categoryAccents[project.category]} flex-shrink-0`} />
 
-      {/* Featured badge */}
-      {project.featured && (
-        <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FF8000]/15 border border-[#FF8000]/25 text-[#FFB347] text-xs font-medium">
-          <Star size={10} className="fill-[#FF8000]" />
-          Featured
-        </div>
-      )}
+        {/* Featured badge */}
+        {project.featured && (
+          <div className="absolute top-4 right-4 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FF8000]/15 border border-[#FF8000]/25 text-[#FFB347] text-xs font-medium z-20">
+            <Star size={9} className="fill-[#FF8000]" />
+            Featured
+          </div>
+        )}
 
-      <div className="p-6 flex flex-col flex-1">
-        {/* Category badge */}
-        <div className="mb-4">
-          <span
-            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-gradient-to-r ${categoryColors[project.category]}`}
-          >
-            {categoryLabels[project.category]}
-          </span>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-white font-display font-semibold text-lg leading-tight mb-2 group-hover:text-[#FFB347] transition-colors">
-          {project.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-          {project.description}
-        </p>
-
-        {/* Highlights */}
-        <ul className="space-y-1.5 mb-5 flex-1">
-          {project.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2 text-sm text-gray-400">
-              <ChevronRight
-                size={14}
-                className="text-[#FF8000] mt-0.5 flex-shrink-0"
-              />
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* Tech stack */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {project.techStack.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-0.5 rounded-md bg-white/5 border border-white/8 text-gray-400 text-xs font-medium"
-            >
-              {tech}
+        <div className="p-6 flex flex-col flex-1 relative z-0">
+          {/* Category badge */}
+          <div className="mb-4">
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-gradient-to-r ${categoryColors[project.category]}`}>
+              {categoryLabels[project.category]}
             </span>
-          ))}
-        </div>
+          </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-3 pt-4 border-t border-white/6">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link"
-          >
-            <Github size={15} className="group-hover/link:text-[#FF8000] transition-colors" />
-            Source Code
-          </a>
-          {project.demoUrl && project.demoUrl !== '#' && (
+          <h3 className="text-white font-display font-semibold text-lg leading-tight mb-2 group-hover:text-[#FFB347] transition-colors duration-200">
+            {project.title}
+          </h3>
+
+          <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
+
+          <ul className="space-y-1.5 mb-5 flex-1">
+            {project.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-2 text-sm text-gray-400">
+                <ChevronRight size={13} className="text-[#FF8000] mt-0.5 flex-shrink-0" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {project.techStack.map((tech) => (
+              <span key={tech} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/8 text-gray-400 text-xs font-medium">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 pt-4 border-t border-white/6">
             <a
-              href={project.demoUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link ml-auto"
+              className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link"
             >
-              Live Demo
-              <ExternalLink size={13} className="group-hover/link:text-[#FFB347] transition-colors" />
+              <Github size={14} className="group-hover/link:text-[#FF8000] transition-colors" />
+              Source Code
             </a>
-          )}
+            {project.demoUrl && project.demoUrl !== '#' && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link ml-auto"
+              >
+                Live Demo
+                <ExternalLink size={12} className="group-hover/link:text-[#FFB347] transition-colors" />
+              </a>
+            )}
+          </div>
         </div>
-      </div>
+      </TiltCard>
     </motion.div>
   )
 }
 
+// ── Main component ────────────────────────────────────────────
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all')
 
@@ -142,12 +192,11 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-[#0D0D0D] relative overflow-hidden">
-      {/* Bg orbs */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FF8000]/4 rounded-full blur-3xl pointer-events-none" />
+    <section id="projects" className="py-20 md:py-28 bg-[#080808] relative overflow-hidden">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#FF8000]/4 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -155,16 +204,13 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
+          <span className="inline-block text-xs font-semibold text-[#FF8000] tracking-[0.2em] uppercase mb-3">
             What I've built
           </span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            Projects
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Projects</h2>
           <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] mb-4" />
           <p className="text-gray-400 text-base max-w-xl mx-auto">
-            A selection of projects spanning machine learning, data engineering, and full-stack
-            development.
+            ML, data engineering, and full-stack projects — each one a real problem solved.
           </p>
         </motion.div>
 
@@ -180,18 +226,14 @@ export default function Projects() {
             <button
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 overflow-hidden ${
                 activeFilter === f.value
-                  ? 'bg-gradient-to-r from-[#FF8000] to-[#FF6B00] text-white shadow-lg shadow-[#FF8000]/20'
-                  : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/25'
+                  ? 'bg-gradient-to-r from-[#FF8000] to-[#FF6B00] text-white shadow-lg shadow-[#FF8000]/20 scale-105'
+                  : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/25 hover:scale-[1.03]'
               }`}
             >
               {f.label}
-              <span
-                className={`ml-1.5 text-xs ${
-                  activeFilter === f.value ? 'text-orange-200' : 'text-gray-600'
-                }`}
-              >
+              <span className={`ml-1.5 text-xs ${activeFilter === f.value ? 'text-orange-200' : 'text-gray-600'}`}>
                 {f.value === 'all'
                   ? projects.length
                   : projects.filter((p) => p.category === f.value).length}
@@ -200,7 +242,7 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Project grid */}
+        {/* Grid */}
         <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
@@ -221,11 +263,11 @@ export default function Projects() {
             href="https://github.com/pavanmanjunath18"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 text-sm font-medium hover:text-white hover:border-[#FF8000]/25 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 text-sm font-medium hover:text-white hover:border-[#FF8000]/25 transition-all duration-200 hover:scale-[1.03]"
           >
-            <Github size={18} />
+            <Github size={17} />
             View all projects on GitHub
-            <ExternalLink size={14} />
+            <ExternalLink size={13} />
           </a>
         </motion.div>
       </div>
