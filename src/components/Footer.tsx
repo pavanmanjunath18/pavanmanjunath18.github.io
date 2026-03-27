@@ -15,7 +15,7 @@ const socials = [
   {
     label: 'GitHub',
     icon: <Github size={18} />,
-    href: 'https://github.com/pavanmallipudi',
+    href: 'https://github.com/pavanmanjunath18',
   },
   {
     label: 'LinkedIn',

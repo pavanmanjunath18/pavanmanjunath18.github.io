@@ -259,17 +259,12 @@ export default function Hero() {
               />
 
               {/* Avatar container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-indigo-600 via-purple-600 to-sky-500 flex items-center justify-center shadow-2xl">
-                <div className="absolute inset-1 rounded-full bg-[#0A1020] flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-7xl sm:text-8xl font-display font-bold text-gradient select-none">
-                      PM
-                    </div>
-                    <div className="text-gray-400 text-sm mt-1 font-medium tracking-wider uppercase">
-                      ASU · CS '26
-                    </div>
-                  </div>
-                </div>
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full shadow-2xl overflow-hidden">
+                <img
+                  src="/profile.jpg"
+                  alt="Pavan Mallipudi"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
 
               {/* Floating badges */}
@@ -286,13 +281,6 @@ export default function Hero() {
                 className="absolute -bottom-4 -left-4 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-sky-300 shadow-lg"
               >
                 📊 Data Science
-              </motion.div>
-              <motion.div
-                animate={{ y: [-4, 8, -4] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute top-1/2 -left-16 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-purple-300 shadow-lg"
-              >
-                ⚡ React
               </motion.div>
             </div>
           </motion.div>

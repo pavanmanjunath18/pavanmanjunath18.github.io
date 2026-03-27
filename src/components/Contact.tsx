@@ -53,8 +53,8 @@ const contactInfo = [
   {
     icon: <Github size={20} />,
     label: 'GitHub',
-    value: 'github.com/pavanmallipudi',
-    href: 'https://github.com/pavanmallipudi',
+    value: 'github.com/pavanmanjunath18',
+    href: 'https://github.com/pavanmanjunath18',
     color: 'from-gray-500 to-slate-500',
   },
   {

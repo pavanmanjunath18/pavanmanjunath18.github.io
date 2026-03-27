@@ -4,7 +4,7 @@ import { Code2, Brain, BarChart3, Rocket, MapPin, GraduationCap, Calendar } from
 const stats = [
   { label: 'GPA', value: '3.8 / 4.0', icon: '🎓', note: "Dean's List" },
   { label: 'Projects', value: '10+', icon: '🚀', note: 'Built & shipped' },
-  { label: 'Internships', value: '2+', icon: '💼', note: 'Industry experience' },
+  { label: 'Experience', value: '2 yrs', icon: '💼', note: 'Professional experience' },
   { label: 'Technologies', value: '30+', icon: '⚡', note: 'Languages & tools' },
 ]
 
