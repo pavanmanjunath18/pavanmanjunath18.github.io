@@ -8,29 +8,34 @@
   }
 
   body {
-    background-color: #070D1A;
+    background-color: #0D0D0D;
     color: #F9FAFB;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+  }
+
+  * {
+    cursor: none !important;
   }
 
   ::selection {
-    background-color: rgba(99, 102, 241, 0.3);
+    background-color: rgba(255, 128, 0, 0.25);
     color: #ffffff;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #38BDF8 100%);
+    background: linear-gradient(135deg, #FF8000 0%, #FF6B00 50%, #FFB347 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-reverse {
-    background: linear-gradient(135deg, #38BDF8 0%, #8B5CF6 50%, #6366F1 100%);
+    background: linear-gradient(135deg, #FFB347 0%, #FF8000 50%, #FF6B00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -47,17 +52,17 @@
   }
 
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(99, 102, 241, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 128, 0, 0.25);
     transform: translateY(-2px);
   }
 
   .glow {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 20px rgba(255, 128, 0, 0.3), 0 0 40px rgba(255, 128, 0, 0.1);
   }
 
   .glow-sm {
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 10px rgba(255, 128, 0, 0.2);
   }
 
   .scrollbar-hide {
@@ -72,20 +77,20 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070D1A;
+  background: #0D0D0D;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.4);
-  border-radius: 3px;
+  background: rgba(255, 128, 0, 0.35);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.7);
+  background: rgba(255, 128, 0, 0.6);
 }
 
 /* Noise texture overlay for hero */

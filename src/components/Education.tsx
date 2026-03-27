@@ -25,9 +25,9 @@ const itemVariants = {
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 md:py-28 bg-[#070D1A] relative overflow-hidden">
+    <section id="education" className="py-20 md:py-28 bg-[#0D0D0D] relative overflow-hidden">
       {/* Background orb */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF8000]/4 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -38,13 +38,13 @@ export default function Education() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             Academic background
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Education
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347]" />
         </motion.div>
 
         <motion.div
@@ -60,7 +60,7 @@ export default function Education() {
             className="glass rounded-2xl border border-white/6 overflow-hidden relative"
           >
             {/* Gradient top bar */}
-            <div className="h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400" />
+            <div className="h-1 bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347]" />
 
             <div className="p-8">
               <div className="flex flex-col md:flex-row gap-6 items-start">
@@ -85,10 +85,10 @@ export default function Education() {
                       <h3 className="text-white font-display font-bold text-2xl mb-1">
                         Arizona State University
                       </h3>
-                      <p className="text-indigo-300 font-semibold text-base">
+                      <p className="text-[#FFB347] font-semibold text-base">
                         Bachelor of Science in Computer Science
                       </p>
-                      <p className="text-purple-300 text-sm mt-1 font-medium">
+                      <p className="text-orange-300 text-sm mt-1 font-medium">
                         Minor: Data Science
                       </p>
                       <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-gray-500">
@@ -122,21 +122,21 @@ export default function Education() {
                   {/* Highlights */}
                   <div className="grid sm:grid-cols-3 gap-3 mt-6">
                     <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/3 border border-white/5">
-                      <GraduationCap size={16} className="text-indigo-400 mt-0.5 flex-shrink-0" />
+                      <GraduationCap size={16} className="text-[#FF8000] mt-0.5 flex-shrink-0" />
                       <div>
                         <div className="text-white text-xs font-semibold">Dean's List</div>
                         <div className="text-gray-500 text-xs">Multiple semesters</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/3 border border-white/5">
-                      <BookOpen size={16} className="text-purple-400 mt-0.5 flex-shrink-0" />
+                      <BookOpen size={16} className="text-[#FFB347] mt-0.5 flex-shrink-0" />
                       <div>
                         <div className="text-white text-xs font-semibold">Research</div>
                         <div className="text-gray-500 text-xs">Undergraduate RA</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/3 border border-white/5">
-                      <Award size={16} className="text-sky-400 mt-0.5 flex-shrink-0" />
+                      <Award size={16} className="text-amber-400 mt-0.5 flex-shrink-0" />
                       <div>
                         <div className="text-white text-xs font-semibold">Activities</div>
                         <div className="text-gray-500 text-xs">Cricket Club &amp; more</div>
@@ -154,7 +154,7 @@ export default function Education() {
             className="glass rounded-2xl border border-white/6 p-8"
           >
             <h4 className="text-white font-display font-semibold text-lg mb-6 flex items-center gap-2">
-              <BookOpen size={20} className="text-indigo-400" />
+              <BookOpen size={20} className="text-[#FF8000]" />
               Relevant Coursework
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
@@ -162,7 +162,7 @@ export default function Education() {
                 <motion.div
                   key={course}
                   whileHover={{ scale: 1.03 }}
-                  className="px-3 py-2 rounded-lg bg-white/3 border border-white/6 text-gray-300 text-sm text-center hover:border-indigo-500/30 hover:text-white transition-all duration-200 cursor-default"
+                  className="px-3 py-2 rounded-lg bg-white/3 border border-white/6 text-gray-300 text-sm text-center hover:border-[#FF8000]/25 hover:text-white transition-all duration-200 cursor-default"
                 >
                   {course}
                 </motion.div>

@@ -39,16 +39,16 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#040812] border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-[#080808] border-t border-white/5 relative overflow-hidden">
       {/* Top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-start pb-8 border-b border-white/5">
           {/* Left — branding */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold font-display text-sm">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#FF8000] to-[#FF6B00] flex items-center justify-center text-white font-bold font-display text-sm">
                 PM
               </div>
               <span className="font-display font-semibold text-white">Pavan Mallipudi</span>
@@ -95,7 +95,7 @@ export default function Footer() {
                   target={social.href.startsWith('http') ? '_blank' : undefined}
                   rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={social.label}
-                  className="p-2.5 rounded-xl glass border border-white/8 text-gray-400 hover:text-white hover:border-indigo-500/30 transition-all duration-200"
+                  className="p-2.5 rounded-xl glass border border-white/8 text-gray-400 hover:text-white hover:border-[#FF8000]/25 transition-all duration-200"
                 >
                   {social.icon}
                 </a>
@@ -116,9 +116,9 @@ export default function Footer() {
           </p>
           <p className="flex items-center gap-1.5">
             Made with{' '}
-            <Heart size={12} className="text-rose-500 fill-rose-500" />
+            <Heart size={12} className="text-[#FF8000] fill-[#FF8000]" />
             &nbsp;using{' '}
-            <Code2 size={12} className="text-indigo-400" />
+            <Code2 size={12} className="text-[#FFB347]" />
             &nbsp;React + Tailwind CSS
           </p>
         </div>

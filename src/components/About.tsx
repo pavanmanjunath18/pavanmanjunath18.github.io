@@ -9,14 +9,14 @@ const stats = [
 ]
 
 const interests = [
-  { label: 'Machine Learning', icon: <Brain size={14} />, color: 'from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-300' },
-  { label: 'Data Science', icon: <BarChart3 size={14} />, color: 'from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300' },
-  { label: 'Backend Engineering', icon: <Code2 size={14} />, color: 'from-indigo-500/20 to-violet-500/20 border-indigo-500/30 text-indigo-300' },
-  { label: 'AI / LLMs', icon: <Brain size={14} />, color: 'from-fuchsia-500/20 to-purple-500/20 border-fuchsia-500/30 text-fuchsia-300' },
-  { label: 'Full-Stack Dev', icon: <Code2 size={14} />, color: 'from-teal-500/20 to-sky-500/20 border-teal-500/30 text-teal-300' },
-  { label: 'MLOps', icon: <Rocket size={14} />, color: 'from-orange-500/20 to-amber-500/20 border-orange-500/30 text-orange-300' },
-  { label: 'Data Engineering', icon: <BarChart3 size={14} />, color: 'from-green-500/20 to-teal-500/20 border-green-500/30 text-green-300' },
-  { label: 'Computer Vision', icon: <Brain size={14} />, color: 'from-rose-500/20 to-pink-500/20 border-rose-500/30 text-rose-300' },
+  { label: 'Machine Learning', icon: <Brain size={14} />, color: 'from-[#FF8000]/15 to-[#FF6B00]/15 border-[#FF8000]/25 text-[#FFB347]' },
+  { label: 'Data Science', icon: <BarChart3 size={14} />, color: 'from-amber-500/15 to-orange-400/15 border-amber-500/25 text-amber-300' },
+  { label: 'Backend Engineering', icon: <Code2 size={14} />, color: 'from-[#FF6B00]/15 to-[#FF8000]/15 border-[#FF6B00]/25 text-orange-300' },
+  { label: 'AI / LLMs', icon: <Brain size={14} />, color: 'from-orange-400/15 to-amber-400/15 border-orange-400/25 text-orange-200' },
+  { label: 'Full-Stack Dev', icon: <Code2 size={14} />, color: 'from-[#FFB347]/15 to-[#FF8000]/15 border-[#FFB347]/25 text-[#FFB347]' },
+  { label: 'MLOps', icon: <Rocket size={14} />, color: 'from-orange-600/15 to-amber-600/15 border-orange-600/25 text-orange-400' },
+  { label: 'Data Engineering', icon: <BarChart3 size={14} />, color: 'from-amber-600/15 to-orange-500/15 border-amber-600/25 text-amber-400' },
+  { label: 'Computer Vision', icon: <Brain size={14} />, color: 'from-[#FF8000]/20 to-amber-500/15 border-[#FF8000]/30 text-[#FF8000]' },
 ]
 
 const containerVariants = {
@@ -31,9 +31,9 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#070D1A] relative overflow-hidden">
+    <section id="about" className="py-20 md:py-28 bg-[#0D0D0D] relative overflow-hidden">
       {/* Subtle bg orb */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF8000]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -44,13 +44,13 @@ export default function About() {
         >
           {/* Section label */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+            <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
               Get to know me
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
               About Me
             </h2>
-            <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400" />
+            <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347]" />
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -59,17 +59,17 @@ export default function About() {
               {/* Main card */}
               <div className="glass rounded-2xl p-8 border border-white/6 relative overflow-hidden">
                 {/* Animated gradient border accent */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-60" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000] to-transparent opacity-50" />
 
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF8000] to-[#FF6B00] flex items-center justify-center flex-shrink-0">
                     <GraduationCap size={22} className="text-white" />
                   </div>
                   <div>
                     <h3 className="text-white font-display font-semibold text-lg leading-tight">
                       B.S. Computer Science
                     </h3>
-                    <p className="text-indigo-300 text-sm mt-0.5">
+                    <p className="text-[#FFB347] text-sm mt-0.5">
                       Minor in Data Science · Arizona State University
                     </p>
                     <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
@@ -93,9 +93,9 @@ export default function About() {
                   </p>
                   <p>
                     My work spans{' '}
-                    <span className="text-indigo-300 font-medium">full-stack development</span>,{' '}
-                    <span className="text-purple-300 font-medium">predictive modeling</span>, and{' '}
-                    <span className="text-sky-300 font-medium">NLP / computer vision</span>. I love
+                    <span className="text-[#FFB347] font-medium">full-stack development</span>,{' '}
+                    <span className="text-[#FF8000] font-medium">predictive modeling</span>, and{' '}
+                    <span className="text-amber-300 font-medium">NLP / computer vision</span>. I love
                     taking ideas from raw data all the way to deployed, production-ready applications
                     that create real value.
                   </p>
@@ -138,7 +138,7 @@ export default function About() {
                     whileHover={{ scale: 1.03, translateY: -2 }}
                     className="glass rounded-2xl p-6 border border-white/6 text-center relative overflow-hidden group cursor-default"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-purple-500/0 group-hover:from-indigo-500/5 group-hover:to-purple-500/5 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#FF8000]/0 to-[#FF6B00]/0 group-hover:from-[#FF8000]/5 group-hover:to-[#FF6B00]/5 transition-all duration-300" />
                     <div className="text-3xl mb-2">{stat.icon}</div>
                     <div className="text-2xl sm:text-3xl font-display font-bold text-white mb-1">
                       {stat.value}
@@ -151,26 +151,26 @@ export default function About() {
 
               {/* Personal note card */}
               <div className="glass rounded-2xl p-6 border border-white/6 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-40" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/40 to-transparent" />
                 <h4 className="text-white font-display font-semibold mb-3 flex items-center gap-2">
                   <span>Beyond the Code</span>
                   <span className="text-lg">🎯</span>
                 </h4>
                 <ul className="space-y-2 text-sm text-gray-400">
                   <li className="flex items-start gap-2">
-                    <span className="text-indigo-400 mt-0.5">▸</span>
+                    <span className="text-[#FF8000] mt-0.5">▸</span>
                     Cricket player at the ASU Cricket Club
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-0.5">▸</span>
+                    <span className="text-[#FFB347] mt-0.5">▸</span>
                     Enjoy exploring new ML papers and implementing them from scratch
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-sky-400 mt-0.5">▸</span>
+                    <span className="text-amber-400 mt-0.5">▸</span>
                     Competitive hackathon participant — love solving real-world problems under pressure
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-teal-400 mt-0.5">▸</span>
+                    <span className="text-orange-400 mt-0.5">▸</span>
                     Open-source contributor and tech community enthusiast
                   </li>
                 </ul>

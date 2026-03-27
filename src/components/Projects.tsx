@@ -14,10 +14,10 @@ const filters: { label: string; value: FilterCategory }[] = [
 ]
 
 const categoryColors: Record<string, string> = {
-  ml: 'from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-300',
-  data: 'from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300',
-  web: 'from-teal-500/20 to-green-500/20 border-teal-500/30 text-teal-300',
-  fullstack: 'from-indigo-500/20 to-violet-500/20 border-indigo-500/30 text-indigo-300',
+  ml: 'from-[#FF8000]/15 to-[#FF6B00]/15 border-[#FF8000]/25 text-[#FFB347]',
+  data: 'from-amber-500/15 to-orange-400/15 border-amber-500/25 text-amber-300',
+  web: 'from-orange-400/15 to-[#FFB347]/15 border-orange-400/25 text-orange-300',
+  fullstack: 'from-[#FF6B00]/15 to-[#FF8000]/15 border-[#FF6B00]/25 text-orange-200',
 }
 
 const categoryLabels: Record<string, string> = {
@@ -28,10 +28,10 @@ const categoryLabels: Record<string, string> = {
 }
 
 const categoryAccents: Record<string, string> = {
-  ml: 'from-purple-500 to-pink-500',
-  data: 'from-sky-500 to-blue-500',
-  web: 'from-teal-500 to-green-500',
-  fullstack: 'from-indigo-500 to-violet-500',
+  ml: 'from-[#FF8000] to-[#FF6B00]',
+  data: 'from-amber-500 to-orange-500',
+  web: 'from-orange-400 to-[#FFB347]',
+  fullstack: 'from-[#FF6B00] to-[#FF8000]',
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -44,7 +44,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.4, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ translateY: -4 }}
       className={`glass rounded-2xl border border-white/6 overflow-hidden group relative flex flex-col ${
-        project.featured ? 'ring-1 ring-indigo-500/20' : ''
+        project.featured ? 'ring-1 ring-[#FF8000]/20' : ''
       }`}
     >
       {/* Top gradient accent bar */}
@@ -54,8 +54,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Featured badge */}
       {project.featured && (
-        <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-xs font-medium">
-          <Star size={10} className="fill-indigo-400" />
+        <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FF8000]/15 border border-[#FF8000]/25 text-[#FFB347] text-xs font-medium">
+          <Star size={10} className="fill-[#FF8000]" />
           Featured
         </div>
       )}
@@ -71,7 +71,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         {/* Title */}
-        <h3 className="text-white font-display font-semibold text-lg leading-tight mb-2 group-hover:text-indigo-200 transition-colors">
+        <h3 className="text-white font-display font-semibold text-lg leading-tight mb-2 group-hover:text-[#FFB347] transition-colors">
           {project.title}
         </h3>
 
@@ -86,7 +86,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <li key={h} className="flex items-start gap-2 text-sm text-gray-400">
               <ChevronRight
                 size={14}
-                className="text-indigo-400 mt-0.5 flex-shrink-0"
+                className="text-[#FF8000] mt-0.5 flex-shrink-0"
               />
               <span>{h}</span>
             </li>
@@ -113,7 +113,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link"
           >
-            <Github size={15} className="group-hover/link:text-indigo-400 transition-colors" />
+            <Github size={15} className="group-hover/link:text-[#FF8000] transition-colors" />
             Source Code
           </a>
           {project.demoUrl && project.demoUrl !== '#' && (
@@ -124,7 +124,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors group/link ml-auto"
             >
               Live Demo
-              <ExternalLink size={13} className="group-hover/link:text-sky-400 transition-colors" />
+              <ExternalLink size={13} className="group-hover/link:text-[#FFB347] transition-colors" />
             </a>
           )}
         </div>
@@ -142,9 +142,9 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-[#070D1A] relative overflow-hidden">
+    <section id="projects" className="py-20 md:py-28 bg-[#0D0D0D] relative overflow-hidden">
       {/* Bg orbs */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FF8000]/4 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -155,13 +155,13 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             What I've built
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Projects
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400 mb-4" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] mb-4" />
           <p className="text-gray-400 text-base max-w-xl mx-auto">
             A selection of projects spanning machine learning, data engineering, and full-stack
             development.
@@ -182,14 +182,14 @@ export default function Projects() {
               onClick={() => setActiveFilter(f.value)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeFilter === f.value
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20'
-                  : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/30'
+                  ? 'bg-gradient-to-r from-[#FF8000] to-[#FF6B00] text-white shadow-lg shadow-[#FF8000]/20'
+                  : 'glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/25'
               }`}
             >
               {f.label}
               <span
                 className={`ml-1.5 text-xs ${
-                  activeFilter === f.value ? 'text-indigo-200' : 'text-gray-600'
+                  activeFilter === f.value ? 'text-orange-200' : 'text-gray-600'
                 }`}
               >
                 {f.value === 'all'
@@ -221,7 +221,7 @@ export default function Projects() {
             href="https://github.com/pavanmanjunath18"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 text-sm font-medium hover:text-white hover:border-indigo-500/30 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 text-sm font-medium hover:text-white hover:border-[#FF8000]/25 transition-all duration-200"
           >
             <Github size={18} />
             View all projects on GitHub

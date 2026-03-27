@@ -41,28 +41,28 @@ const contactInfo = [
     label: 'Email',
     value: 'pavan.mallipudi@asu.edu',
     href: 'mailto:pavan.mallipudi@asu.edu',
-    color: 'from-indigo-500 to-violet-500',
+    color: 'from-[#FF8000] to-[#FF6B00]',
   },
   {
     icon: <Linkedin size={20} />,
     label: 'LinkedIn',
     value: 'linkedin.com/in/pavanmallipudi',
     href: 'https://linkedin.com/in/pavanmallipudi',
-    color: 'from-sky-500 to-blue-500',
+    color: 'from-amber-500 to-orange-500',
   },
   {
     icon: <Github size={20} />,
     label: 'GitHub',
     value: 'github.com/pavanmanjunath18',
     href: 'https://github.com/pavanmanjunath18',
-    color: 'from-gray-500 to-slate-500',
+    color: 'from-gray-600 to-gray-500',
   },
   {
     icon: <MapPin size={20} />,
     label: 'Location',
     value: 'Tempe, AZ (Open to relocation)',
     href: null,
-    color: 'from-rose-500 to-pink-500',
+    color: 'from-orange-400 to-[#FFB347]',
   },
 ]
 
@@ -115,7 +115,6 @@ export default function Contact() {
 
     setSubmitState('submitting')
 
-    // Simulate async submission (no backend — replace with your preferred service)
     console.log('Contact form submission:', form)
     await new Promise((resolve) => setTimeout(resolve, 1200))
 
@@ -125,10 +124,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#0A1020] relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-28 bg-[#111111] relative overflow-hidden">
       {/* Background orbs */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600/6 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FF8000]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6B00]/4 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -139,13 +138,13 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             Get in touch
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Contact Me
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400 mb-4" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] mb-4" />
           <p className="text-gray-400 text-base max-w-xl mx-auto">
             Whether you have an opportunity, a question, or just want to say hi — my inbox is
             always open.
@@ -162,7 +161,7 @@ export default function Contact() {
           {/* Left — contact info */}
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="glass rounded-2xl border border-white/6 p-6 mb-6 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-40" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/40 to-transparent" />
               <h3 className="text-white font-display font-semibold text-lg mb-2">
                 Let's work together
               </h3>
@@ -199,7 +198,7 @@ export default function Contact() {
                       href={info.href}
                       target={info.href.startsWith('http') ? '_blank' : undefined}
                       rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-gray-300 text-sm font-medium hover:text-white group-hover:text-indigo-300 transition-colors truncate block"
+                      className="text-gray-300 text-sm font-medium hover:text-white group-hover:text-[#FFB347] transition-colors truncate block"
                     >
                       {info.value}
                     </a>
@@ -216,7 +215,7 @@ export default function Contact() {
           {/* Right — contact form */}
           <motion.div variants={itemVariants}>
             <div className="glass rounded-2xl border border-white/6 p-8 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-40" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/35 to-transparent" />
 
               {submitState === 'success' ? (
                 <motion.div
@@ -236,7 +235,7 @@ export default function Contact() {
                   </p>
                   <button
                     onClick={() => setSubmitState('idle')}
-                    className="mt-6 px-5 py-2 rounded-lg glass border border-white/10 text-gray-400 text-sm hover:text-white hover:border-indigo-500/30 transition-all"
+                    className="mt-6 px-5 py-2 rounded-lg glass border border-white/10 text-gray-400 text-sm hover:text-white hover:border-[#FF8000]/25 transition-all"
                   >
                     Send another message
                   </button>
@@ -254,7 +253,7 @@ export default function Contact() {
                         htmlFor="name"
                         className="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5"
                       >
-                        Name <span className="text-indigo-400">*</span>
+                        Name <span className="text-[#FF8000]">*</span>
                       </label>
                       <input
                         id="name"
@@ -264,10 +263,10 @@ export default function Contact() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="Your name"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all ${
+                        className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#FF8000] transition-all ${
                           errors.name && touched.name
                             ? 'border-red-500/50 focus:ring-red-500'
-                            : 'border-white/10 focus:border-indigo-500/50'
+                            : 'border-white/10 focus:border-[#FF8000]/40'
                         }`}
                       />
                       {errors.name && touched.name && (
@@ -281,7 +280,7 @@ export default function Contact() {
                         htmlFor="email"
                         className="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5"
                       >
-                        Email <span className="text-indigo-400">*</span>
+                        Email <span className="text-[#FF8000]">*</span>
                       </label>
                       <input
                         id="email"
@@ -291,10 +290,10 @@ export default function Contact() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="your@email.com"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all ${
+                        className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#FF8000] transition-all ${
                           errors.email && touched.email
                             ? 'border-red-500/50 focus:ring-red-500'
-                            : 'border-white/10 focus:border-indigo-500/50'
+                            : 'border-white/10 focus:border-[#FF8000]/40'
                         }`}
                       />
                       {errors.email && touched.email && (
@@ -311,7 +310,7 @@ export default function Contact() {
                       htmlFor="subject"
                       className="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5"
                     >
-                      Subject <span className="text-indigo-400">*</span>
+                      Subject <span className="text-[#FF8000]">*</span>
                     </label>
                     <input
                       id="subject"
@@ -321,10 +320,10 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       placeholder="Internship opportunity / Collaboration / Just saying hi"
-                      className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all ${
+                      className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#FF8000] transition-all ${
                         errors.subject && touched.subject
                           ? 'border-red-500/50 focus:ring-red-500'
-                          : 'border-white/10 focus:border-indigo-500/50'
+                          : 'border-white/10 focus:border-[#FF8000]/40'
                       }`}
                     />
                     {errors.subject && touched.subject && (
@@ -340,7 +339,7 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5"
                     >
-                      Message <span className="text-indigo-400">*</span>
+                      Message <span className="text-[#FF8000]">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -350,10 +349,10 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       placeholder="Tell me about the opportunity, project, or just say hello..."
-                      className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all resize-none ${
+                      className={`w-full px-4 py-2.5 rounded-xl bg-white/5 border text-white text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#FF8000] transition-all resize-none ${
                         errors.message && touched.message
                           ? 'border-red-500/50 focus:ring-red-500'
-                          : 'border-white/10 focus:border-indigo-500/50'
+                          : 'border-white/10 focus:border-[#FF8000]/40'
                       }`}
                     />
                     <div className="flex items-start justify-between mt-1">
@@ -374,7 +373,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={submitState === 'submitting'}
-                    className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-500 text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-lg shadow-indigo-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-lg shadow-[#FF8000]/20 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {submitState === 'submitting' ? (
                       <>

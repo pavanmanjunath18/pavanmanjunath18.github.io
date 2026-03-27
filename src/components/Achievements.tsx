@@ -3,32 +3,37 @@ import { achievements, type Achievement } from '../data/achievements'
 
 const typeConfig: Record<
   Achievement['type'],
-  { label: string; color: string; glow: string }
+  { label: string; color: string; glow: string; accent: string }
 > = {
   academic: {
     label: 'Academic',
-    color: 'from-indigo-500/20 to-violet-500/20 border-indigo-500/30 text-indigo-300',
-    glow: 'group-hover:shadow-indigo-500/10',
+    color: 'from-[#FF8000]/15 to-[#FF6B00]/15 border-[#FF8000]/25 text-[#FFB347]',
+    glow: 'group-hover:shadow-[#FF8000]/10',
+    accent: 'from-[#FF8000] to-[#FF6B00]',
   },
   award: {
     label: 'Award',
     color: 'from-yellow-500/20 to-amber-500/20 border-yellow-500/30 text-yellow-300',
     glow: 'group-hover:shadow-yellow-500/10',
+    accent: 'from-yellow-500 to-amber-500',
   },
   certification: {
     label: 'Certification',
     color: 'from-green-500/20 to-teal-500/20 border-green-500/30 text-green-300',
     glow: 'group-hover:shadow-green-500/10',
+    accent: 'from-green-500 to-teal-500',
   },
   leadership: {
     label: 'Leadership',
-    color: 'from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300',
-    glow: 'group-hover:shadow-sky-500/10',
+    color: 'from-amber-500/15 to-orange-400/15 border-amber-500/25 text-amber-300',
+    glow: 'group-hover:shadow-amber-500/10',
+    accent: 'from-amber-500 to-orange-400',
   },
   extracurricular: {
     label: 'Extracurricular',
-    color: 'from-purple-500/20 to-fuchsia-500/20 border-purple-500/30 text-purple-300',
-    glow: 'group-hover:shadow-purple-500/10',
+    color: 'from-orange-400/15 to-[#FFB347]/15 border-orange-400/25 text-orange-300',
+    glow: 'group-hover:shadow-orange-400/10',
+    accent: 'from-orange-400 to-[#FFB347]',
   },
 }
 
@@ -44,10 +49,10 @@ const cardVariants = {
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-20 md:py-28 bg-[#0A1020] relative overflow-hidden">
+    <section id="achievements" className="py-20 md:py-28 bg-[#111111] relative overflow-hidden">
       {/* Background orbs */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-yellow-600/4 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 right-0 w-64 h-64 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#FF8000]/4 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-64 h-64 bg-[#FF6B00]/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -58,13 +63,13 @@ export default function Achievements() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             Recognition &amp; activities
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Achievements
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400 mb-4" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] mb-4" />
           <p className="text-gray-400 text-base max-w-xl mx-auto">
             Awards, certifications, leadership roles, and extracurricular activities that define my
             journey beyond the classroom.
@@ -90,17 +95,7 @@ export default function Achievements() {
               >
                 {/* Top accent gradient */}
                 <div
-                  className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${
-                    achievement.type === 'academic'
-                      ? 'from-indigo-500 to-violet-500'
-                      : achievement.type === 'award'
-                      ? 'from-yellow-500 to-amber-500'
-                      : achievement.type === 'certification'
-                      ? 'from-green-500 to-teal-500'
-                      : achievement.type === 'leadership'
-                      ? 'from-sky-500 to-blue-500'
-                      : 'from-purple-500 to-fuchsia-500'
-                  } opacity-70`}
+                  className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${config.accent} opacity-70`}
                 />
 
                 {/* Hover overlay */}
@@ -122,7 +117,7 @@ export default function Achievements() {
                 <h3 className="text-white font-display font-semibold text-base leading-snug mb-1">
                   {achievement.title}
                 </h3>
-                <p className="text-indigo-300 text-sm font-medium mb-1">
+                <p className="text-[#FFB347] text-sm font-medium mb-1">
                   {achievement.organization}
                 </p>
                 <p className="text-gray-500 text-xs mb-3">{achievement.date}</p>

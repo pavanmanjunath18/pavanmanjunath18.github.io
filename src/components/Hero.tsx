@@ -19,10 +19,10 @@ function FloatingParticles() {
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
+    size: Math.random() * 2 + 1,
     duration: Math.random() * 10 + 8,
     delay: Math.random() * 5,
-    opacity: Math.random() * 0.4 + 0.1,
+    opacity: Math.random() * 0.3 + 0.08,
   }))
 
   return (
@@ -30,7 +30,7 @@ function FloatingParticles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-indigo-400"
+          className="absolute rounded-full bg-[#FF8000]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -40,7 +40,7 @@ function FloatingParticles() {
           }}
           animate={{
             y: [0, -30, 0],
-            opacity: [p.opacity, p.opacity * 1.5, p.opacity],
+            opacity: [p.opacity, p.opacity * 1.8, p.opacity],
           }}
           transition={{
             duration: p.duration,
@@ -111,20 +111,20 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#070D1A]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0D0D0D]">
       {/* Gradient orbs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FF8000]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#FF6B00]/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#FFB347]/6 rounded-full blur-3xl" />
       </div>
 
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
-          backgroundImage: `linear-gradient(rgba(99,102,241,0.8) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99,102,241,0.8) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,128,0,0.8) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,128,0,0.8) 1px, transparent 1px)`,
           backgroundSize: '64px 64px',
         }}
       />
@@ -141,8 +141,8 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-[#FF8000]/10 border border-[#FF8000]/20 text-[#FFB347] mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF8000] animate-pulse" />
                 Available for Internships &amp; Full-Time Roles
               </span>
             </motion.div>
@@ -165,7 +165,7 @@ export default function Hero() {
               className="text-xl sm:text-2xl md:text-3xl font-display font-semibold text-gray-300 mb-6 h-10 flex items-center justify-center lg:justify-start gap-2"
             >
               <span className="text-gradient-reverse">{displayed}</span>
-              <span className="inline-block w-0.5 h-7 bg-indigo-400 animate-pulse" />
+              <span className="inline-block w-0.5 h-7 bg-[#FF8000] animate-pulse" />
             </motion.div>
 
             <motion.p
@@ -184,7 +184,7 @@ export default function Hero() {
             >
               <button
                 onClick={handleScrollToProjects}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-500 text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 glow shadow-lg shadow-indigo-500/25"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 glow shadow-lg shadow-[#FF8000]/20"
               >
                 View My Work
                 <ExternalLink size={16} />
@@ -192,7 +192,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 font-semibold text-sm hover:text-white hover:border-indigo-500/40 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-gray-300 font-semibold text-sm hover:text-white hover:border-[#FF8000]/30 transition-all duration-200"
               >
                 Download Resume
                 <Download size={16} />
@@ -207,7 +207,7 @@ export default function Hero() {
                 href="https://github.com/pavanmanjunath18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
+                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/30 transition-all duration-200"
                 aria-label="GitHub"
               >
                 <Github size={20} />
@@ -216,14 +216,14 @@ export default function Hero() {
                 href="https://linkedin.com/in/pavan-venkata-manjunath-mallipudi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
+                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/30 transition-all duration-200"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="mailto:pvmmallipudi@gmail.com"
-                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
+                className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-[#FF8000]/30 transition-all duration-200"
                 aria-label="Email"
               >
                 <Mail size={20} />
@@ -243,7 +243,7 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-sky-400 blur-2xl opacity-30 scale-110" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#FF8000] via-[#FF6B00] to-[#FFB347] blur-2xl opacity-20 scale-110" />
 
               {/* Rotating gradient border */}
               <motion.div
@@ -252,7 +252,7 @@ export default function Hero() {
                 className="absolute inset-0 rounded-full"
                 style={{
                   background:
-                    'conic-gradient(from 0deg, #6366F1, #8B5CF6, #38BDF8, #6366F1)',
+                    'conic-gradient(from 0deg, #FF8000, #FF6B00, #FFB347, #FF8000)',
                   padding: '3px',
                   borderRadius: '50%',
                 }}
@@ -271,14 +271,14 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [-6, 6, -6] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-4 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-indigo-300 shadow-lg"
+                className="absolute -top-4 -right-4 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-[#FFB347] shadow-lg"
               >
                 🧠 ML Engineer
               </motion.div>
               <motion.div
                 animate={{ y: [6, -6, 6] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-4 -left-4 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-sky-300 shadow-lg"
+                className="absolute -bottom-4 -left-4 glass border border-white/10 rounded-xl px-3 py-2 text-xs font-medium text-[#FF8000] shadow-lg"
               >
                 📊 Data Science
               </motion.div>

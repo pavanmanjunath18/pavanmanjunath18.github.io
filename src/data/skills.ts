@@ -15,7 +15,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Languages',
     icon: '{ }',
-    color: 'from-indigo-500 to-purple-500',
+    color: 'from-[#FF8000] to-[#FF6B00]',
     skills: [
       { name: 'Python', level: 5 },
       { name: 'TypeScript', level: 4 },
@@ -30,7 +30,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'ML & AI',
     icon: '🧠',
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-[#FF6B00] to-amber-500',
     skills: [
       { name: 'PyTorch', level: 4 },
       { name: 'TensorFlow', level: 4 },
@@ -45,7 +45,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Web & Frameworks',
     icon: '⚡',
-    color: 'from-sky-500 to-indigo-500',
+    color: 'from-[#FFB347] to-[#FF8000]',
     skills: [
       { name: 'React', level: 4 },
       { name: 'Next.js', level: 3 },
@@ -59,7 +59,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Data & Analytics',
     icon: '📊',
-    color: 'from-teal-500 to-sky-500',
+    color: 'from-amber-500 to-orange-400',
     skills: [
       { name: 'Pandas', level: 5 },
       { name: 'NumPy', level: 5 },
@@ -86,7 +86,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Cloud & DevOps',
     icon: '☁️',
-    color: 'from-pink-500 to-rose-500',
+    color: 'from-orange-600 to-[#FF8000]',
     skills: [
       { name: 'AWS', level: 3 },
       { name: 'Docker', level: 4 },

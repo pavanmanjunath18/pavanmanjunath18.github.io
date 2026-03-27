@@ -10,6 +10,7 @@ import Achievements from './components/Achievements'
 import Resume from './components/Resume'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CursorEffect from './components/CursorEffect'
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -21,7 +22,8 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#070D1A] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden cursor-none">
+      <CursorEffect />
       <Navbar scrollY={scrollY} />
       <main>
         <Hero />

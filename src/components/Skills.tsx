@@ -8,7 +8,7 @@ function ProficiencyDots({ level }: { level: number }) {
         <div
           key={i}
           className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-            i < level ? 'bg-indigo-400' : 'bg-white/10'
+            i < level ? 'bg-[#FF8000]' : 'bg-white/10'
           }`}
         />
       ))}
@@ -28,11 +28,11 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 md:py-28 bg-[#0A1020] relative overflow-hidden">
+    <section id="skills" className="py-20 md:py-28 bg-[#111111] relative overflow-hidden">
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-80 h-80 bg-purple-600/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/4 right-0 w-64 h-64 bg-sky-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#FF8000]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-0 w-64 h-64 bg-[#FF6B00]/4 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,13 +44,13 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             What I work with
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Skills &amp; Technologies
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347]" />
           <p className="mt-4 text-gray-400 text-base max-w-xl mx-auto">
             A curated set of tools and technologies I use to build scalable software and intelligent
             systems.
@@ -106,7 +106,7 @@ export default function Skills() {
                     className="flex items-center justify-between gap-3 group/skill"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="w-1 h-1 rounded-full bg-indigo-500/50 flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-[#FF8000]/50 flex-shrink-0" />
                       <span className="text-gray-300 text-sm truncate group-hover/skill:text-white transition-colors">
                         {skill.name}
                       </span>
@@ -140,7 +140,7 @@ export default function Skills() {
                 {Array.from({ length: 5 }, (_, i) => (
                   <div
                     key={i}
-                    className={`w-1.5 h-1.5 rounded-full ${i < dots ? 'bg-indigo-400' : 'bg-white/10'}`}
+                    className={`w-1.5 h-1.5 rounded-full ${i < dots ? 'bg-[#FF8000]' : 'bg-white/10'}`}
                   />
                 ))}
               </div>

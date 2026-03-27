@@ -44,7 +44,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#070D1A]/90 backdrop-blur-md border-b border-white/5 shadow-lg'
+          ? 'bg-[#0D0D0D]/90 backdrop-blur-md border-b border-white/5 shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -59,7 +59,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
             }}
             className="flex items-center gap-2 group"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold font-display text-sm glow-sm transition-all duration-300 group-hover:scale-110">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#FF8000] to-[#FF6B00] flex items-center justify-center text-white font-bold font-display text-sm glow-sm transition-all duration-300 group-hover:scale-110">
               PM
             </div>
             <span className="font-display font-semibold text-white hidden sm:block">
@@ -86,7 +86,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:opacity-90 transition-opacity duration-200 glow-sm"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-[#FF8000] to-[#FF6B00] text-white hover:opacity-90 transition-opacity duration-200 glow-sm"
             >
               Hire Me
             </a>
@@ -103,7 +103,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-[#070D1A]/98 backdrop-blur-md z-40">
+        <div className="lg:hidden fixed inset-0 top-16 bg-[#0D0D0D]/98 backdrop-blur-md z-40">
           <div className="flex flex-col gap-1 p-4">
             {navLinks.map((link) => (
               <a
@@ -118,7 +118,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="mt-4 text-center px-4 py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-medium"
+              className="mt-4 text-center px-4 py-3 rounded-lg bg-gradient-to-r from-[#FF8000] to-[#FF6B00] text-white font-medium"
             >
               Hire Me
             </a>

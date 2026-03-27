@@ -6,34 +6,34 @@ const typeConfig = {
   internship: {
     label: 'Internship',
     icon: <Briefcase size={13} />,
-    color: 'from-indigo-500/20 to-violet-500/20 border-indigo-500/30 text-indigo-300',
-    dot: 'from-indigo-500 to-violet-500',
+    color: 'from-[#FF8000]/15 to-[#FF6B00]/15 border-[#FF8000]/25 text-[#FFB347]',
+    dot: 'from-[#FF8000] to-[#FF6B00]',
   },
   'part-time': {
     label: 'Part-Time',
     icon: <Clock size={13} />,
-    color: 'from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300',
-    dot: 'from-sky-500 to-blue-500',
+    color: 'from-amber-500/15 to-orange-400/15 border-amber-500/25 text-amber-300',
+    dot: 'from-amber-500 to-orange-400',
   },
   research: {
     label: 'Research',
     icon: <FlaskConical size={13} />,
-    color: 'from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-300',
-    dot: 'from-purple-500 to-pink-500',
+    color: 'from-orange-400/15 to-[#FFB347]/15 border-orange-400/25 text-orange-300',
+    dot: 'from-orange-400 to-[#FFB347]',
   },
   leadership: {
     label: 'Leadership',
     icon: <Users size={13} />,
-    color: 'from-teal-500/20 to-green-500/20 border-teal-500/30 text-teal-300',
-    dot: 'from-teal-500 to-green-500',
+    color: 'from-[#FF6B00]/15 to-amber-600/15 border-[#FF6B00]/25 text-orange-200',
+    dot: 'from-[#FF6B00] to-amber-600',
   },
 }
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 md:py-28 bg-[#0A1020] relative overflow-hidden">
+    <section id="experience" className="py-20 md:py-28 bg-[#111111] relative overflow-hidden">
       {/* Bg accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#FF8000]/4 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -44,13 +44,13 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-3">
+          <span className="inline-block text-sm font-semibold text-[#FF8000] tracking-widest uppercase mb-3">
             Work history
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Experience
           </h2>
-          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400 mb-4" />
+          <div className="mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] mb-4" />
           <p className="text-gray-400 text-base max-w-xl mx-auto">
             My professional journey — internships, research, and leadership roles that have shaped
             my engineering mindset.
@@ -60,7 +60,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical timeline line */}
-          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-purple-500/30 to-transparent" />
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#FF8000]/50 via-[#FF6B00]/30 to-transparent" />
 
           <div className="space-y-10">
             {experiences.map((exp, index) => {
@@ -106,7 +106,7 @@ export default function Experience() {
                             {config.label}
                           </span>
                         </div>
-                        <p className="text-indigo-300 font-medium text-sm">
+                        <p className="text-[#FFB347] font-medium text-sm">
                           {exp.company}
                         </p>
                         <p className="text-gray-500 text-xs mt-0.5">{exp.location}</p>
@@ -122,7 +122,7 @@ export default function Experience() {
                     <ul className="space-y-2 mb-4">
                       {exp.description.map((point, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <span className="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+                          <span className="text-[#FF8000] mt-1 flex-shrink-0">▸</span>
                           <span>{point}</span>
                         </li>
                       ))}
