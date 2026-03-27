@@ -28,7 +28,7 @@ export const projects: Project[] = [
       'Deployed containerized via Docker on AWS EC2',
     ],
     category: 'ml',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     featured: true,
   },
   {
@@ -46,7 +46,7 @@ export const projects: Project[] = [
       'Handles 500K+ row datasets efficiently',
     ],
     category: 'data',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     featured: true,
   },
   {
@@ -64,7 +64,7 @@ export const projects: Project[] = [
       'Auto-scales with Kubernetes HPA',
     ],
     category: 'ml',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
       '100+ active users during ASU hackathon demo',
     ],
     category: 'fullstack',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     demoUrl: '#',
     featured: false,
   },
@@ -101,8 +101,26 @@ export const projects: Project[] = [
       'Modular DAG architecture for easy extension',
     ],
     category: 'data',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     featured: false,
+  },
+  {
+    id: 7,
+    title: 'Enterprise Lakehouse ETL Pipeline',
+    description:
+      'An end-to-end ETL pipeline using Databricks and Spark to consolidate multi-source FMCG retail data into a lakehouse architecture.',
+    longDescription:
+      'Built a scalable lakehouse ETL pipeline on Databricks using Apache Spark to ingest and consolidate multi-source FMCG retail data. Designed fact and dimension tables with incremental loading strategies to support historical tracking and downstream BI reporting.',
+    techStack: ['Databricks', 'Apache Spark', 'Python', 'SQL', 'dbt'],
+    highlights: [
+      'Consolidated multi-source FMCG retail data into a unified lakehouse architecture',
+      'Designed fact and dimension tables with incremental loading for historical tracking',
+      'Implemented data transformations and business logic for analytics-ready datasets',
+      'Supports scalable reporting and BI dashboard consumption',
+    ],
+    category: 'data',
+    githubUrl: 'https://github.com/pavanmanjunath18',
+    featured: true,
   },
   {
     id: 6,
@@ -119,7 +137,7 @@ export const projects: Project[] = [
       'Live webcam inference at 30+ FPS',
     ],
     category: 'ml',
-    githubUrl: 'https://github.com/pavanmallipudi',
+    githubUrl: 'https://github.com/pavanmanjunath18',
     featured: false,
   },
 ]

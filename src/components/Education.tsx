@@ -3,21 +3,14 @@ import { GraduationCap, BookOpen, Award, MapPin, Calendar } from 'lucide-react'
 
 const coursework = [
   'Data Structures & Algorithms',
-  'Object-Oriented Programming',
-  'Machine Learning',
-  'Database Systems',
-  'Software Engineering',
+  'Data Visualization',
+  'Exploratory & Analysis of Environmental Data',
   'Operating Systems',
-  'Computer Networks',
-  'Linear Algebra',
-  'Statistics & Probability',
-  'Data Mining',
-  'Artificial Intelligence',
-  'Natural Language Processing',
-  'Computer Vision',
-  'Distributed Systems',
-  'Cloud Computing',
-  'Software Project Management',
+  'Database Management',
+  'Software Engineering',
+  'Foundations of Machine Learning',
+  'Applied Linear Algebra',
+  'Probability and Statistics',
 ]
 
 const containerVariants = {
@@ -112,12 +105,11 @@ export default function Education() {
                     <div className="flex flex-col gap-3 sm:items-end">
                       <div className="glass rounded-xl px-4 py-3 border border-white/8 text-center">
                         <div className="text-2xl font-display font-bold text-white mb-0.5">
-                          3.X
+                          3.8
                           <span className="text-gray-500 text-sm font-normal"> / 4.0</span>
                         </div>
                         <div className="text-gray-400 text-xs">
-                          GPA{' '}
-                          <span className="text-yellow-500 text-xs">(TODO: fill in)</span>
+                          GPA
                         </div>
                       </div>
                       <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-green-500/10 border border-green-500/20 text-green-400">

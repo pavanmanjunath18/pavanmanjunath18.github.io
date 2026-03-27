@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowDown, Download, ExternalLink } from 'lucide-react'
 
-const roles = ['Software Engineer', 'Data Scientist', 'ML Engineer', 'AI Enthusiast']
+const roles = ['Data Scientist', 'Data Analyst', 'Data Engineer', 'ML Engineer', 'AI Enthusiast']
 
 interface Particle {
   id: number
@@ -204,7 +204,7 @@ export default function Hero() {
               className="flex items-center gap-4 justify-center lg:justify-start"
             >
               <a
-                href="https://github.com/pavanmallipudi"
+                href="https://github.com/pavanmanjunath18"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
@@ -213,7 +213,7 @@ export default function Hero() {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/pavanmallipudi"
+                href="https://linkedin.com/in/pavan-venkata-manjunath-mallipudi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
@@ -222,14 +222,14 @@ export default function Hero() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:pavan.mallipudi@asu.edu"
+                href="mailto:pvmmallipudi@gmail.com"
                 className="p-2.5 rounded-lg glass border border-white/10 text-gray-400 hover:text-white hover:border-indigo-500/40 transition-all duration-200"
                 aria-label="Email"
               >
                 <Mail size={20} />
               </a>
               <span className="text-gray-600 text-sm ml-2">
-                pavan.mallipudi@asu.edu
+                pvmmallipudi@gmail.com
               </span>
             </motion.div>
           </motion.div>
