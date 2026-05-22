@@ -29,11 +29,26 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
+    role: 'Database & Analytics Developer',
+    company: 'DigiClips (Capstone)',
+    location: 'Tempe, AZ',
+    startDate: 'Aug 2025',
+    endDate: 'May 2026',
+    type: 'part-time',
+    description: [
+      'Developed MySQL-based relational data workflows for high-volume processed media and transcript datasets, enabling scalable search, reporting, and operational analytics.',
+      'Improved query performance and data reliability through schema normalization, indexing strategies, validation workflows, and automated cleanup and retention processes.',
+      'Provided analytics and reporting support to surface operational insights from transcript and media datasets.',
+    ],
+    techStack: ['MySQL', 'SQL', 'Data Modeling', 'ETL', 'Analytics'],
+  },
+  {
+    id: 3,
     role: 'Community Engagement Data Input Specialist',
     company: 'ASU Social Embeddedness (Office of University Affairs)',
     location: 'Tempe, AZ',
     startDate: 'Sep 2024',
-    endDate: 'Present',
+    endDate: 'May 2026',
     type: 'part-time',
     description: [
       'Administered the Collaboratory platform to manage, validate, and standardize university-community engagement data, improving data accuracy and consistency for reporting across the university.',

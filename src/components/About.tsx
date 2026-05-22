@@ -100,24 +100,24 @@ export default function About() {
                 </div>
                 <div className="space-y-4 text-gray-300 text-sm sm:text-[15px] leading-relaxed">
                   <p>
-                    I'm a Computer Science student at{' '}
+                    I'm a Computer Science graduate from{' '}
                     <span className="text-white font-medium">Arizona State University</span> with a
-                    minor in Data Science, graduating May 2026. Passionate about building intelligent
+                    minor in Data Science, graduated May 2026. Passionate about building intelligent
                     systems at the intersection of software engineering and machine learning.
                   </p>
                   <p>
                     My work spans{' '}
-                    <span className="text-[#FFB347] font-medium">full-stack development</span>,{' '}
-                    <span className="text-[#FF8000] font-medium">predictive modeling</span>, and{' '}
-                    <span className="text-amber-300 font-medium">NLP / computer vision</span>. I love
+                    <span className="text-[#FFB347] font-medium">data engineering</span>,{' '}
+                    <span className="text-[#FF8000] font-medium">analytics & BI</span>, and{' '}
+                    <span className="text-amber-300 font-medium">machine learning</span>. I love
                     taking ideas from raw data all the way to deployed, production-ready applications.
                   </p>
                   <p>
-                    Actively seeking{' '}
+                    Open to full-time roles in{' '}
                     <span className="text-white font-medium">
-                      internships and full-time roles
-                    </span>{' '}
-                    in software engineering, data science, and ML engineering.
+                      software engineering, data science, and ML engineering
+                    </span>
+                    . OPT approved — no H-1B sponsorship required.
                   </p>
                 </div>
               </div>
@@ -198,8 +198,8 @@ export default function About() {
                 <div className="space-y-3">
                   {[
                     { icon: '📍', label: 'Location', value: 'Tempe, AZ (open to relocate)' },
-                    { icon: '📅', label: 'Availability', value: 'May 2026 (FT) / Now (internship)' },
-                    { icon: '🌐', label: 'Work Auth', value: 'OPT / H-1B eligible' },
+                    { icon: '📅', label: 'Availability', value: 'Available Now (graduated May 2026)' },
+                    { icon: '🌐', label: 'Work Auth', value: 'OPT approved (1+2 yrs STEM OPT)' },
                     { icon: '🎯', label: 'Focus', value: 'SWE · Data Science · ML Engineering' },
                   ].map((fact) => (
                     <div key={fact.label} className="flex items-center gap-3 text-sm">

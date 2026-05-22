@@ -14,8 +14,8 @@ const navLinks = [
 
 const socials = [
   { label: 'GitHub', icon: <Github size={18} />, href: 'https://github.com/pavanmanjunath18' },
-  { label: 'LinkedIn', icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/pavanmallipudi' },
-  { label: 'Email', icon: <Mail size={18} />, href: 'mailto:pavan.mallipudi@asu.edu' },
+  { label: 'LinkedIn', icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/pavan-mallipudi/' },
+  { label: 'Email', icon: <Mail size={18} />, href: 'mailto:pvmmallipudi@gmail.com' },
 ]
 
 export default function Footer() {
@@ -84,7 +84,7 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-gray-600 text-xs mt-4 leading-relaxed">
-              pavan.mallipudi@asu.edu
+              pvmmallipudi@gmail.com
               <br />
               Tempe, Arizona
             </p>

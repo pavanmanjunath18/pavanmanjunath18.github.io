@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { Download, FileText, Eye, CheckCircle } from 'lucide-react'
 
 const highlights = [
-  'B.S. Computer Science + Data Science Minor at ASU (May 2026)',
-  'Internship experience in software engineering and data analytics',
-  'Projects in ML, NLP, computer vision, and full-stack development',
-  '30+ technologies across Python, TypeScript, cloud platforms, and ML frameworks',
-  'Undergraduate research experience',
-  'Certifications: Google Data Analytics, AWS Cloud Practitioner',
+  'B.S. Computer Science + Data Science Minor at ASU (Graduated May 2026)',
+  'Experience in data analytics, database engineering, and ETL pipelines',
+  'Projects in data engineering, analytics dashboards, and ML',
+  '30+ technologies across Python, SQL, cloud platforms, and ML frameworks',
+  "Dean's List — 6 semesters · GPA 3.8",
+  'Certification: IBM Data Analyst Professional Certificate',
 ]
 
 export default function Resume() {
@@ -54,7 +54,7 @@ export default function Resume() {
                   <p className="text-gray-400 text-sm">
                     CS + Data Science · Arizona State University · May 2026
                   </p>
-                  <p className="text-[#FFB347] text-xs mt-1 font-medium">Resume last updated: March 2026</p>
+                  <p className="text-[#FFB347] text-xs mt-1 font-medium">Resume last updated: May 2026</p>
                 </div>
               </div>
 
@@ -98,9 +98,9 @@ export default function Resume() {
               <div className="mt-6 flex items-center gap-2 p-4 rounded-xl bg-[#FF8000]/6 border border-[#FF8000]/12">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
                 <p className="text-sm text-gray-400">
-                  <span className="text-white font-medium">Open to opportunities</span> — actively
-                  seeking internships and full-time roles in software engineering, data science, and
-                  ML engineering.
+                  <span className="text-white font-medium">Open to full-time roles</span> — OPT approved
+                  (1+2 yrs STEM OPT). No H-1B sponsorship required. Seeking roles in software
+                  engineering, data science, and ML engineering.
                 </p>
               </div>
             </div>

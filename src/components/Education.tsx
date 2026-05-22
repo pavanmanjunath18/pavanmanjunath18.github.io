@@ -76,7 +76,7 @@ export default function Education() {
                       <p className="text-orange-300 text-sm mt-1 font-medium">Minor: Data Science</p>
                       <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-gray-500">
                         <span className="flex items-center gap-1.5"><MapPin size={13} /> Tempe, Arizona</span>
-                        <span className="flex items-center gap-1.5"><Calendar size={13} /> Aug 2022 – May 2026</span>
+                        <span className="flex items-center gap-1.5"><Calendar size={13} /> Aug 2022 – May 2026 (Graduated)</span>
                       </div>
                     </div>
                     <div className="flex flex-col gap-3 sm:items-end">
@@ -86,18 +86,18 @@ export default function Education() {
                         </div>
                         <div className="text-gray-400 text-xs">GPA</div>
                       </div>
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-green-500/10 border border-green-500/20 text-green-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                        Expected May 2026
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[#FF8000]/10 border border-[#FF8000]/20 text-[#FFB347]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF8000]" />
+                        Graduated May 2026
                       </span>
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-3 gap-3 mt-6">
                     {[
-                      { icon: <GraduationCap size={15} className="text-[#FF8000]" />, title: "Dean's List", sub: 'Multiple semesters' },
-                      { icon: <BookOpen size={15} className="text-[#FFB347]" />, title: 'Research', sub: 'Undergraduate RA' },
-                      { icon: <Award size={15} className="text-amber-400" />, title: 'Activities', sub: 'Cricket Club & more' },
+                      { icon: <GraduationCap size={15} className="text-[#FF8000]" />, title: "Dean's List", sub: '6 semesters' },
+                      { icon: <Award size={15} className="text-[#FFB347]" />, title: 'IBM Certified', sub: 'Data Analyst' },
+                      { icon: <Award size={15} className="text-amber-400" />, title: 'Activities', sub: 'Cricket & Hackathons' },
                     ].map((item) => (
                       <div key={item.title} className="flex items-start gap-2.5 p-3 rounded-xl bg-white/3 border border-white/5">
                         <div className="mt-0.5 flex-shrink-0">{item.icon}</div>
@@ -140,10 +140,7 @@ export default function Education() {
             </h4>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                { name: 'Google Data Analytics Certificate', org: 'Google / Coursera', status: 'Completed', color: 'text-green-400 bg-green-500/10 border-green-500/20' },
-                { name: 'AWS Cloud Practitioner', org: 'Amazon Web Services', status: 'Completed', color: 'text-green-400 bg-green-500/10 border-green-500/20' },
-                { name: 'Deep Learning Specialization', org: 'DeepLearning.AI / Coursera', status: 'In Progress', color: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20' },
-                { name: 'TensorFlow Developer Certificate', org: 'Google / TensorFlow', status: 'In Progress', color: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20' },
+                { name: 'IBM Data Analyst Professional Certificate', org: 'IBM / Coursera', status: 'Completed', color: 'text-green-400 bg-green-500/10 border-green-500/20' },
               ].map((cert) => (
                 <div key={cert.name} className="flex items-start justify-between gap-3 p-3 rounded-xl bg-white/3 border border-white/5">
                   <div>

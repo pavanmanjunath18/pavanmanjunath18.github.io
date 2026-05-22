@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Linkedin, Github, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Mail, Linkedin, Github, MapPin, Send, AlertCircle } from 'lucide-react'
 
 interface FormData { name: string; email: string; subject: string; message: string }
 interface FormErrors { name?: string; email?: string; subject?: string; message?: string }
-type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 function validate(data: FormData): FormErrors {
   const errors: FormErrors = {}
@@ -18,8 +17,8 @@ function validate(data: FormData): FormErrors {
 }
 
 const contactInfo = [
-  { icon: <Mail size={20} />, label: 'Email', value: 'pavan.mallipudi@asu.edu', href: 'mailto:pavan.mallipudi@asu.edu', color: 'from-[#FF8000] to-[#FF6B00]' },
-  { icon: <Linkedin size={20} />, label: 'LinkedIn', value: 'linkedin.com/in/pavanmallipudi', href: 'https://linkedin.com/in/pavanmallipudi', color: 'from-amber-500 to-orange-500' },
+  { icon: <Mail size={20} />, label: 'Email', value: 'pvmmallipudi@gmail.com', href: 'mailto:pvmmallipudi@gmail.com', color: 'from-[#FF8000] to-[#FF6B00]' },
+  { icon: <Linkedin size={20} />, label: 'LinkedIn', value: 'linkedin.com/in/pavan-mallipudi', href: 'https://www.linkedin.com/in/pavan-mallipudi/', color: 'from-amber-500 to-orange-500' },
   { icon: <Github size={20} />, label: 'GitHub', value: 'github.com/pavanmanjunath18', href: 'https://github.com/pavanmanjunath18', color: 'from-gray-600 to-gray-500' },
   { icon: <MapPin size={20} />, label: 'Location', value: 'Tempe, AZ (Open to relocation)', href: null, color: 'from-orange-400 to-[#FFB347]' },
 ]
@@ -45,7 +44,6 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>({ name: '', email: '', subject: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [touched, setTouched] = useState<Record<string, boolean>>({})
-  const [submitState, setSubmitState] = useState<SubmitState>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -63,18 +61,16 @@ export default function Contact() {
     setErrors((prev) => ({ ...prev, [name]: newErrors[name as keyof FormErrors] }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setTouched({ name: true, email: true, subject: true, message: true })
     const validationErrors = validate(form)
     setErrors(validationErrors)
     if (Object.keys(validationErrors).length > 0) return
-    setSubmitState('submitting')
-    console.log('Contact form submission:', form)
-    await new Promise((resolve) => setTimeout(resolve, 1200))
-    setSubmitState('success')
-    setForm({ name: '', email: '', subject: '', message: '' })
-    setTouched({})
+
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    const mailtoUrl = `mailto:pvmmallipudi@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = mailtoUrl
   }
 
   return (
@@ -155,29 +151,11 @@ export default function Contact() {
             <div className="glass rounded-2xl border border-white/6 p-8 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8000]/35 to-transparent" />
 
-              {submitState === 'success' ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center mb-5">
-                    <CheckCircle size={32} className="text-green-400" />
+              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  <div>
+                    <h3 className="text-white font-display font-semibold text-lg mb-1">Send a Message</h3>
+                    <p className="text-gray-500 text-xs mb-6">Clicking "Send Message" will open your email client pre-filled and ready to send.</p>
                   </div>
-                  <h3 className="text-white font-display font-bold text-xl mb-2">Message Sent!</h3>
-                  <p className="text-gray-400 text-sm max-w-xs">
-                    Thanks for reaching out. I'll get back to you as soon as possible — usually within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => setSubmitState('idle')}
-                    className="mt-6 px-5 py-2 rounded-lg glass border border-white/10 text-gray-400 text-sm hover:text-white hover:border-[#FF8000]/25 transition-all"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  <h3 className="text-white font-display font-semibold text-lg mb-6">Send a Message</h3>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -225,38 +203,15 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    disabled={submitState === 'submitting'}
-                    className="group w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-lg shadow-[#FF8000]/20 disabled:opacity-60 disabled:cursor-not-allowed relative overflow-hidden"
+                    className="group w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FF8000] via-[#FF6B00] to-[#FFB347] text-white font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-lg shadow-[#FF8000]/20 relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center gap-2.5">
-                      {submitState === 'submitting' ? (
-                        <>
-                          <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send size={16} />
-                          Send Message
-                        </>
-                      )}
+                      <Send size={16} />
+                      Send Message
                     </span>
-                    {submitState !== 'submitting' && (
-                      <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-                    )}
+                    <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
                   </button>
-
-                  {submitState === 'error' && (
-                    <p className="text-center text-red-400 text-sm flex items-center justify-center gap-1.5">
-                      <AlertCircle size={14} />
-                      Something went wrong. Please try again or email me directly.
-                    </p>
-                  )}
                 </form>
-              )}
             </div>
           </motion.div>
         </motion.div>
