@@ -226,7 +226,7 @@ export default function Hero() {
                   <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#FF8000] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF8000]" />
                 </span>
-                Available for Internships &amp; Full-Time Roles
+                Open to Work · OPT Approved · No H-1B Required
               </span>
             </motion.div>
 
@@ -263,7 +263,8 @@ export default function Hero() {
               CS student at{' '}
               <span className="text-white font-medium">Arizona State University</span> (Minor: Data
               Science) — building intelligent systems at the intersection of software engineering and
-              machine learning. Graduating May 2026.
+              machine learning. Graduated May 2026.{' '}
+              <span className="text-[#FFB347] font-medium">OPT approved (1+2 yrs STEM OPT) — No H-1B sponsorship required.</span>
             </motion.p>
 
             {/* CTAs */}
@@ -299,7 +300,7 @@ export default function Hero() {
             >
               {[
                 { href: 'https://github.com/pavanmanjunath18', icon: <Github size={18} />, label: 'GitHub' },
-                { href: 'https://linkedin.com/in/pavan-venkata-manjunath-mallipudi', icon: <Linkedin size={18} />, label: 'LinkedIn' },
+                { href: 'https://www.linkedin.com/in/pavan-mallipudi/', icon: <Linkedin size={18} />, label: 'LinkedIn' },
                 { href: 'mailto:pvmmallipudi@gmail.com', icon: <Mail size={18} />, label: 'Email' },
               ].map((s) => (
                 <a
