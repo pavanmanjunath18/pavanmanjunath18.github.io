@@ -13,6 +13,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 6,
+    title: 'CardioScope 3D',
+    description:
+      'An interactive 3D cardiovascular risk explorer that renders a real clinical cohort as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model.',
+    longDescription:
+      'Built an interactive 3D data-analytics app on the UCI Heart Disease (Cleveland) cohort of 297 real patients. Compresses 13 clinical features into navigable 3D space via PCA, surfaces unsupervised k-means clusters, and scores heart-disease risk with an in-browser logistic-regression model (ROC-AUC 0.924). A real-time simulator projects a user-defined patient into the same space, driving a beating 3D heart and an explainable log-odds factor breakdown.',
+    techStack: ['React', 'TypeScript', 'Three.js', 'react-three-fiber', 'PCA / k-means', 'Logistic Regression'],
+    highlights: [
+      'Rendered 297 real patients as a live, orbitable 3D point cloud with WebGL bloom',
+      'PCA dimensionality reduction and unsupervised k-means clustering computed in-browser',
+      'Logistic-regression risk model (ROC-AUC 0.924) with an explainable factor breakdown',
+      'Real-time risk simulator projects a custom patient into the cohort with a beating 3D heart',
+    ],
+    category: 'ml',
+    githubUrl: 'https://github.com/pavanmanjunath18/cardioscope-3d',
+    demoUrl: 'https://cardioscope-3d.vercel.app',
+    featured: true,
+  },
+  {
     id: 1,
     title: 'Resolviq',
     description:
