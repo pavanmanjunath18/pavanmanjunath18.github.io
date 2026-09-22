@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Pavan Mallipudi — Data Analyst, Engineer &amp; Scientist</title>
-<meta name="description" content="Pavan Venkata Manjunath Mallipudi — data analyst, engineer, and scientist. I turn raw data into pipelines, models, and dashboards that drive decisions." />
+<title>Pavan Mallipudi: Data Analyst, Engineer &amp; Scientist</title>
+<meta name="description" content="Pavan Venkata Manjunath Mallipudi, data analyst, engineer, and scientist. I turn raw data into pipelines, models, and dashboards that drive decisions." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,8 +19,8 @@
   --paper-dim:#A7A399;
   --mute:#6B6F7A;         /* muted blue-gray */
   --line:rgba(236,231,221,0.12);
-  --signal:#6FE3FF;       /* cool — data */
-  --ember:#FF6A3D;        /* warm — story */
+  --signal:#6FE3FF;       /* cool, data */
+  --ember:#FF6A3D;        /* warm, story */
   --signal-soft:rgba(111,227,255,0.14);
   --ember-soft:rgba(255,106,61,0.14);
   --ease:cubic-bezier(0.16,1,0.3,1);
@@ -230,7 +230,7 @@ section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.2rem,5vw,4rem)}
 .about-aside .row span:first-child{color:var(--mute);font-family:"JetBrains Mono",monospace;
   font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase}
 
-/* (legacy) callout — unused */
+/* (legacy) callout, unused */
 .film{max-width:1180px;margin:4rem auto 0;border:1px solid var(--line);border-radius:14px;
   padding:clamp(1.6rem,4vw,2.6rem);position:relative;overflow:hidden;
   background:linear-gradient(120deg,rgba(255,106,61,0.05),rgba(111,227,255,0.04))}
@@ -299,23 +299,26 @@ footer{border-top:1px solid var(--line);padding:1.6rem clamp(1.2rem,5vw,4rem);
 .card{border:1px solid var(--line);border-radius:14px;padding:1.4rem;background:var(--ink-2)}
 .card h3{font-family:"JetBrains Mono",monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
 .card .tags{display:flex;flex-wrap:wrap;gap:0.4rem}
-.edu{max-width:1180px;margin:0 auto;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--ink-2)}
-.edu-top{height:3px;background:linear-gradient(90deg,var(--signal),var(--ember))}
-.edu-body{padding:clamp(1.6rem,4vw,2.4rem)}
+/* same two-column rhythm as Beyond the Data: photo one side, detail the other */
+.edu-grid{max-width:1180px;margin:0 auto;display:grid;
+  grid-template-columns:0.9fr 1.1fr;gap:clamp(2rem,6vw,4rem);align-items:center}
+@media(max-width:860px){.edu-grid{grid-template-columns:1fr;gap:2.4rem}}
+.edu-photo{margin:0;position:relative;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);background:var(--ink-3)}
+.edu-photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;
+  transition:transform .9s var(--ease)}
+.edu-photo:hover img{transform:scale(1.04)}
+.edu-photo figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  font-family:"JetBrains Mono",monospace;font-size:0.64rem;letter-spacing:0.05em;color:var(--paper-dim);
+  padding:2.4rem 1rem 0.9rem;background:linear-gradient(to top,rgba(11,12,16,0.92),transparent)}
 .edu-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:flex-start}
 .edu-row h3{font-family:"Bricolage Grotesque";font-weight:600;font-size:clamp(1.4rem,3.4vw,2rem)}
 .edu-row p{color:var(--signal);margin-top:0.25rem}
 .edu-gpa{text-align:right;font-family:"JetBrains Mono",monospace;color:var(--mute);font-size:0.72rem;letter-spacing:0.04em}
+.edu-copy .edu-gpa{text-align:left;margin-top:0.9rem}
 .edu-gpa b{display:block;font-family:"Bricolage Grotesque";font-size:1.7rem;color:var(--paper);font-weight:600;margin-bottom:0.2rem}
-.edu h4{font-family:"JetBrains Mono",monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin:1.7rem 0 0.85rem}
+.edu-copy h4{font-family:"JetBrains Mono",monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin:1.7rem 0 0.85rem}
 /* graduation photos inside the education card */
-.edu-photos{margin-top:1.1rem;max-width:420px}
-.edu-photos figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3)}
-.edu-photos img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;
-  transition:transform .7s var(--ease)}
-.edu-photos figure:hover img{transform:scale(1.03)}
-.edu-photos figcaption{font-family:"JetBrains Mono",monospace;font-size:0.62rem;letter-spacing:0.04em;
-  color:var(--mute);padding:0.6rem 0.75rem 0.7rem;line-height:1.45}
 
 /* ------------------------------ beyond the data ------------------------- */
 .beyond{background:var(--ink-2);border-top:1px solid var(--line)}
@@ -344,7 +347,9 @@ footer{border-top:1px solid var(--line);padding:1.6rem clamp(1.2rem,5vw,4rem);
 .ach-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 @media(max-width:640px){.ach-grid{grid-template-columns:1fr}}
 .ach{border:1px solid var(--line);border-radius:14px;padding:1.3rem;background:var(--ink-2);display:flex;gap:1rem;align-items:flex-start}
-.ach .ic{font-size:1.4rem;line-height:1;flex-shrink:0}
+.ach .logo{width:52px;height:52px;flex-shrink:0;object-fit:contain;object-position:left center;
+  transition:transform .45s var(--ease)}
+a.ach:hover .logo,a.ach:focus-visible .logo{transform:scale(1.06)}
 .ach .badge{width:68px;height:68px;flex-shrink:0;object-fit:contain;
   filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));transition:transform .45s var(--ease)}
 a.ach:hover .badge,a.ach:focus-visible .badge{transform:scale(1.06)}
@@ -451,15 +456,15 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
   <section id="work">
     <div class="section-head reveal">
       <h2>Selected Work</h2>
-      <span class="eyebrow">2024 — 2026 / Index</span>
+      <span class="eyebrow">2024 - 2026 / Index</span>
     </div>
     <div class="work-list" id="workList">
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Plant Disease Classifier — open GitHub repository"><span>Plant Disease Classifier</span></a>
+        <a class="work-cover" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Plant Disease Classifier: open GitHub repository"><span>Plant Disease Classifier</span></a>
         <span class="work-idx">01</span>
         <div class="work-main">
           <h3>Plant Disease Classifier</h3>
-          <p>A deep-learning system that identifies 38 plant-leaf disease classes across 14 crops from a single photo — EfficientNet-B0 transfer learning on PlantVillage in two phases, selected on validation macro F1, reaching 98.21% test accuracy (0.9765 macro F1) with a 4.06M-parameter model. Runs tracked in Weights &amp; Biases and served through a Streamlit app that flags low-confidence predictions.</p>
+          <p>A deep-learning system that identifies 38 plant-leaf disease classes across 14 crops from a single photo, using EfficientNet-B0 transfer learning on PlantVillage in two phases, selected on validation macro F1, reaching 98.21% test accuracy (0.9765 macro F1) with a 4.06M-parameter model. Runs tracked in Weights &amp; Biases and served through a Streamlit app that flags low-confidence predictions.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -468,11 +473,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="ReadmitScope US — open live site"><span>ReadmitScope US</span></a>
+        <a class="work-cover" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="ReadmitScope US: open live site"><span>ReadmitScope US</span></a>
         <span class="work-idx">02</span>
         <div class="work-main">
           <h3>ReadmitScope US</h3>
-          <p>An end-to-end healthcare analytics project on CMS Medicare readmissions — live CMS data ingestion, cleaning, QA logs, statistical analysis, hospital ownership and star-rating enrichment, and a deployed React dashboard for exploring excess readmission patterns.</p>
+          <p>An end-to-end healthcare analytics project on CMS Medicare readmissions, covering live CMS data ingestion, cleaning, QA logs, statistical analysis, hospital ownership and star-rating enrichment, and a deployed React dashboard for exploring excess readmission patterns.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/readmitscope" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -482,11 +487,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="CardioScope 3D — open live site"><span>CardioScope 3D</span></a>
+        <a class="work-cover" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="CardioScope 3D: open live site"><span>CardioScope 3D</span></a>
         <span class="work-idx">03</span>
         <div class="work-main">
           <h3>CardioScope 3D</h3>
-          <p>An interactive 3D cardiovascular risk explorer — 297 real patients as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model (ROC-AUC 0.924).</p>
+          <p>An interactive 3D cardiovascular risk explorer built on 297 real patients as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model (ROC-AUC 0.924).</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/cardioscope-3d" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -496,11 +501,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Enterprise Data Lakehouse Integration Platform — open GitHub repository"><span>Enterprise Data Lakehouse Integration Platform</span></a>
+        <a class="work-cover" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Enterprise Data Lakehouse Integration Platform: open GitHub repository"><span>Enterprise Data Lakehouse Integration Platform</span></a>
         <span class="work-idx">04</span>
         <div class="work-main">
           <h3>Enterprise Data Lakehouse Integration Platform</h3>
-          <p>An end-to-end Databricks lakehouse — Bronze, Silver, and Gold layers integrating multiple business systems. PySpark and Delta Lake MERGE for incremental loads, schema harmonization, and data-quality validation from AWS S3, governed by Unity Catalog.</p>
+          <p>An end-to-end Databricks lakehouse with Bronze, Silver, and Gold layers integrating multiple business systems. PySpark and Delta Lake MERGE for incremental loads, schema harmonization, and data-quality validation from AWS S3, governed by Unity Catalog.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -509,11 +514,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SaaS Revenue and Churn Intelligence Platform — open GitHub repository"><span>SaaS Revenue and Churn Intelligence Platform</span></a>
+        <a class="work-cover" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SaaS Revenue and Churn Intelligence Platform: open GitHub repository"><span>SaaS Revenue and Churn Intelligence Platform</span></a>
         <span class="work-idx">05</span>
         <div class="work-main">
           <h3>SaaS Revenue &amp; Churn Intelligence Platform</h3>
-          <p>A PostgreSQL MRR state machine — window functions and CTEs classifying 50K+ customer-months into revenue-movement categories for NRR, GRR, churn, and cohort reporting. Surfaced that payment failure predicts churn 3× better than any other signal, validated by 23 automated data-quality assertions.</p>
+          <p>A PostgreSQL MRR state machine built from window functions and CTEs classifying 50K+ customer-months into revenue-movement categories for NRR, GRR, churn, and cohort reporting. Surfaced that payment failure predicts churn 3× better than any other signal, validated by 23 automated data-quality assertions.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -522,11 +527,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Stock Trading Analysis Dashboard — open GitHub repository"><span>Stock Trading Analysis Dashboard</span></a>
+        <a class="work-cover" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Stock Trading Analysis Dashboard: open GitHub repository"><span>Stock Trading Analysis Dashboard</span></a>
         <span class="work-idx">06</span>
         <div class="work-main">
           <h3>Stock Trading Analysis Dashboard</h3>
-          <p>A real-time stock dashboard in Streamlit and Plotly — live OHLCV data with locally computed indicators (SMA, Bollinger Bands, RSI, volume ratio), plus a context-aware AI market assistant grounded in live S&amp;P 500, Nasdaq, and Dow data.</p>
+          <p>A real-time stock dashboard in Streamlit and Plotly, with live OHLCV data with locally computed indicators (SMA, Bollinger Bands, RSI, volume ratio), plus a context-aware AI market assistant grounded in live S&amp;P 500, Nasdaq, and Dow data.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -535,11 +540,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor aria-label="AI Job Market Intelligence Dashboard — open live site"><span>AI Job Market Intelligence Dashboard</span></a>
+        <a class="work-cover" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor aria-label="AI Job Market Intelligence Dashboard: open live site"><span>AI Job Market Intelligence Dashboard</span></a>
         <span class="work-idx">07</span>
         <div class="work-main">
           <h3>AI Job Market Intelligence Dashboard</h3>
-          <p>An ObservableHQ dashboard analyzing 90K+ global AI job records — salary trends, hiring difficulty, and workforce dynamics. Found that roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
+          <p>An ObservableHQ dashboard analyzing 90K+ global AI job records for salary trends, hiring difficulty, and workforce dynamics. Found that roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
           <div class="work-links">
             <a class="live" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor>Open dashboard ↗</a>
           </div>
@@ -553,7 +558,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="about-grid">
-      <!-- PORTRAIT — your photo loads from profile.jpg (place it beside this file).
+      <!-- PORTRAIT: your photo loads from profile.jpg (place it beside this file).
            If it's missing, the placeholder below shows instead. Duotone + feather are automatic. -->
       <div class="about-portrait reveal">
         <div class="portrait-frame" id="portraitFrame" data-cursor>
@@ -584,11 +589,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       <div class="about-copy">
         <h2 class="reveal">One instinct across the whole stack: take the noise, find the <span class="sig">signal</span>, and turn it into a decision someone can <em>act on</em>.</h2>
         <div class="about-aside reveal">
-          <p>I work end to end — building the pipelines and models that move data, then the analysis and dashboards that make it usable. The part I care about most is where a number turns into a decision.</p>
+          <p>I work end to end, building the pipelines and models that move data, then the analysis and dashboards that make it usable. The part I care about most is where a number turns into a decision.</p>
           <div class="row"><span>Focus</span><span>Analytics · Engineering · BI</span></div>
           <div class="row"><span>Based</span><span>Tempe, AZ</span></div>
           <div class="row"><span>Status</span><span>Open to roles</span></div>
-          <div class="row"><span>Work auth</span><span>OPT · 3-yr STEM · no H-1B</span></div>
+          <div class="row"><span>Work auth</span><span>Approved OPT · 3-yr STEM</span></div>
           <div class="row"><span>Stack</span><span>Python · SQL · Spark · dbt · BI</span></div>
           <div class="row"><span>Certified</span><span>AWS AI &amp; Cloud Practitioner</span></div>
         </div>
@@ -615,11 +620,11 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
     <div class="section-head reveal"><h2>Experience</h2><span class="eyebrow">Work history</span></div>
     <div class="timeline">
       <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Community Engagement Data Specialist</h3><div class="tl-co">ASU Social Embeddedness · Office of University Affairs · Tempe, AZ</div></div><span class="tl-meta">Sep 2024 — May 2026</span></div>
+        <div class="tl-head"><div><h3>Community Engagement Data Specialist</h3><div class="tl-co">ASU Social Embeddedness · Office of University Affairs · Tempe, AZ</div></div><span class="tl-meta">Sep 2024 - May 2026</span></div>
         <div class="tl-grid">
           <div class="tl-body">
           <ul>
-            <li>Managed, validated, and standardized university–community engagement data on the Collaboratory platform, improving accuracy and consistency for cross-departmental reporting and stakeholder decision-making.</li>
+            <li>Managed, validated, and standardized university-community engagement data on the Collaboratory platform, improving accuracy and consistency for cross-departmental reporting and stakeholder decision-making.</li>
             <li>Automated reporting workflows and built Tableau and Power BI dashboards for 10+ ASU departments, surfacing engagement trends and KPIs while expanding self-service analytics adoption.</li>
             <li>Led trainings and stakeholder demos for faculty and staff, translating complex data processes into actionable insights and promoting consistent data governance.</li>
           </ul>
@@ -632,7 +637,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Database &amp; Analytics Developer</h3><div class="tl-co">DigiClips (Capstone) · Tempe, AZ</div></div><span class="tl-meta">Aug 2025 — May 2026</span></div>
+        <div class="tl-head"><div><h3>Database &amp; Analytics Developer</h3><div class="tl-co">DigiClips (Capstone) · Tempe, AZ</div></div><span class="tl-meta">Aug 2025 - May 2026</span></div>
         <div class="tl-grid">
           <div class="tl-body">
           <ul>
@@ -649,7 +654,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Jr. Data Analyst Intern</h3><div class="tl-co">Food Forest AI · Philadelphia, PA</div></div><span class="tl-meta">Jun 2025 — Jul 2025</span></div>
+        <div class="tl-head"><div><h3>Jr. Data Analyst Intern</h3><div class="tl-co">Food Forest AI · Philadelphia, PA</div></div><span class="tl-meta">Jun 2025 - Jul 2025</span></div>
         <div class="tl-grid">
           <div class="tl-body">
           <ul>
@@ -685,26 +690,22 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-head reveal"><h2>Education</h2><span class="eyebrow">Academic background</span></div>
-    <div class="edu reveal">
-      <div class="edu-top"></div>
-      <div class="edu-body">
+    <div class="edu-grid">
+      <figure class="edu-photo reveal">
+        <img src="assets/grad-class-of-2026.webp" alt="Pavan in cap and gown celebrating at the ASU Class of 2026 sign" loading="lazy" decoding="async" />
+        <figcaption>Commencement, May 2026 &middot; Class of 2026</figcaption>
+      </figure>
+      <div class="edu-copy reveal">
         <div class="edu-row">
           <div>
             <h3>Arizona State University</h3>
             <p>B.S. Computer Science · Minor in Data Science · Magna Cum Laude</p>
-            <div class="tl-meta" style="margin-top:0.6rem">Tempe, AZ · Aug 2022 — May 2026 (Graduated)</div>
+            <div class="tl-meta" style="margin-top:0.6rem">Tempe, AZ · Aug 2022 - May 2026 (Graduated)</div>
           </div>
           <div class="edu-gpa"><b>3.76 <span style="font-size:0.55em;color:var(--mute)">/ 4.0</span></b>GPA · 5× Dean's List</div>
         </div>
         <h4>Honors</h4>
-        <div class="chips"><span class="chip">Magna Cum Laude</span><span class="chip">Dean's List — 5 semesters</span></div>
-        <h4>Commencement · May 2026</h4>
-        <div class="edu-photos">
-          <figure>
-            <img src="assets/grad-class-of-2026.webp" alt="Pavan in cap and gown celebrating at the ASU Class of 2026 sign" loading="lazy" decoding="async" />
-            <figcaption>Class of 2026</figcaption>
-          </figure>
-        </div>
+        <div class="chips"><span class="chip">Magna Cum Laude</span><span class="chip">Dean's List, 5 semesters</span></div>
         <h4>Relevant coursework</h4>
         <div class="chips">
           <span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Database Management</span><span class="chip">Foundations of Machine Learning</span><span class="chip">Applied Linear Algebra</span><span class="chip">Probability &amp; Statistics</span><span class="chip">Statistical Modeling &amp; Inference</span><span class="chip">Data in R &amp; Python</span><span class="chip">Data Visualization</span><span class="chip">Object Oriented Programming</span>
@@ -726,35 +727,35 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div><h3>AWS Certified Cloud Practitioner</h3><div class="org">Amazon Web Services</div><div class="dt">Foundational · Sep 2026</div><span class="go">Verify on Credly ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/ibm-introduction-to-data-analytics.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">📊</span>
+        <img class="logo" src="assets/logos/ibm.svg" alt="IBM logo" loading="lazy" decoding="async" />
         <div><h3>Introduction to Data Analytics</h3><div class="org">IBM · Coursera</div><div class="dt">Mar 2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/ibm-databases-sql-python.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">🗄️</span>
+        <img class="logo" src="assets/logos/ibm.svg" alt="IBM logo" loading="lazy" decoding="async" />
         <div><h3>Databases &amp; SQL for Data Science with Python</h3><div class="org">IBM · Coursera</div><div class="dt">Jun 2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/ibm-data-visualization-excel-cognos.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">📈</span>
+        <img class="logo" src="assets/logos/ibm.svg" alt="IBM logo" loading="lazy" decoding="async" />
         <div><h3>Data Visualization &amp; Dashboards with Excel and Cognos</h3><div class="org">IBM · Coursera</div><div class="dt">Apr 2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/aws-cloud-technical-essentials.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">☁️</span>
+        <img class="logo" src="assets/logos/aws.svg" alt="Amazon Web Services logo" loading="lazy" decoding="async" />
         <div><h3>AWS Cloud Technical Essentials</h3><div class="org">Amazon Web Services · Coursera</div><div class="dt">Jun 2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/google-workspace-user-resource-management.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">🟦</span>
+        <img class="logo" src="assets/logos/google-cloud.svg" alt="Google Cloud logo" loading="lazy" decoding="async" />
         <div><h3>Google Workspace User &amp; Resource Management</h3><div class="org">Google Cloud · Coursera</div><div class="dt">Mar 2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/claude-ai-fluency.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">🤖</span>
+        <img class="logo" src="assets/logos/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
         <div><h3>Claude AI Fluency</h3><div class="org">Anthropic</div><div class="dt">2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/claude-ai-capabilities-limitations.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">🤖</span>
+        <img class="logo" src="assets/logos/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
         <div><h3>Claude AI Capabilities &amp; Limitations</h3><div class="org">Anthropic</div><div class="dt">2026</div><span class="go">View certificate ↗</span></div>
       </a>
       <a class="ach reveal" href="certs/claude-101.pdf" target="_blank" rel="noopener noreferrer" data-cursor>
-        <span class="ic">🤖</span>
+        <img class="logo" src="assets/logos/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
         <div><h3>Claude 101</h3><div class="org">Anthropic</div><div class="dt">2026</div><span class="go">View certificate ↗</span></div>
       </a>
     </div>
@@ -770,7 +771,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </figure>
       <div class="beyond-copy">
         <h2 class="reveal">When I'm not in a query editor, I'm usually somewhere with worse <span class="sig">signal</span> and a better <em>view</em>.</h2>
-        <p class="reveal">I travel whenever I get the chance, and the trips I like most are the ones that involve a trailhead — national parks, long climbs, and the kind of cold that makes you check the forecast twice. Same instinct as the work, really: pick a hard problem, break it into switchbacks, keep moving.</p>
+        <p class="reveal">I travel whenever I get the chance, and the trips I like most are the ones that involve a trailhead: national parks, long climbs, and the kind of cold that makes you check the forecast twice. Same instinct as the work, really: pick a hard problem, break it into switchbacks, keep moving.</p>
         <div class="fact reveal">
           <b>12,633 ft</b>
           <span><i>Fun fact</i>I've hiked Humphreys Peak, the highest point in Arizona.</span>
@@ -869,7 +870,7 @@ const Audio = (function(){
     masterLP = ctx.createBiquadFilter();             // overall warmth
     masterLP.type='lowpass'; masterLP.frequency.value=1400; masterLP.Q.value=0.25;
     master.connect(comp); comp.connect(masterLP); masterLP.connect(ctx.destination);
-    // convolution reverb — smooth, dark tail (no hiss). Mostly dry for clarity.
+    // convolution reverb: smooth, dark tail (no hiss). Mostly dry for clarity.
     reverb = ctx.createConvolver(); reverb.buffer = impulse(3.0, 0.05);
     wet = ctx.createGain(); wet.gain.value=0.22;
     dry = ctx.createGain(); dry.gain.value=0.92;
@@ -912,7 +913,7 @@ const Audio = (function(){
     });
   }
 
-  // evolving pad — two consonant chords slowly crossfading for gentle, radiant movement
+  // evolving pad: two consonant chords slowly crossfading for gentle, radiant movement
   function startEngine(){
     if(started) return; started=true;
     // slow crossfade LFO (~55s) driving two chord banks in antiphase
@@ -926,14 +927,14 @@ const Audio = (function(){
     busA.connect(gA); busB.connect(gB);
     send(gA); send(gB);
 
-    buildChord([130.81,164.81,196.00,246.94,293.66], busA); // Cmaj9  — C E G B D
-    buildChord([174.61,220.00,261.63,329.63,392.00], busB); // Fadd9  — F A C E G (gentle lift)
+    buildChord([130.81,164.81,196.00,246.94,293.66], busA); // Cmaj9: C E G B D
+    buildChord([174.61,220.00,261.63,329.63,392.00], busB); // Fadd9: F A C E G (gentle lift)
 
     // (high glow tone removed)
   }
 
-  // occasional soft chimes — tuned to the chord so they always feel consonant
-  const scale=[523.25,587.33,659.25,783.99,987.77]; // C D E G B — upper Cmaj9 tones
+  // occasional soft chimes, tuned to the chord so they always feel consonant
+  const scale=[523.25,587.33,659.25,783.99,987.77]; // C D E G B: upper Cmaj9 tones
   function scheduleShimmer(){
     const next=6+Math.random()*7;
     shimmerT=setTimeout(()=>{ if(ambientOn) bell(scale[(Math.random()*scale.length)|0]); scheduleShimmer(); }, next*1000);
@@ -959,7 +960,7 @@ const Audio = (function(){
     master.gain.cancelScheduledValues(ctx.currentTime);
     master.gain.linearRampToValueAtTime(on?0.2:0.0, ctx.currentTime+1.6);
   }
-  // soft UI tick — sine into the same reverb so it sits in the space
+  // soft UI tick: sine into the same reverb so it sits in the space
   function blip(freq=600,dur=0.08,vol=0.045){
     if(!ctx||!ambientOn) return;
     const o=ctx.createOscillator(), g=ctx.createGain();
