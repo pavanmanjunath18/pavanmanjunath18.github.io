@@ -225,6 +225,7 @@ section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.2rem,5vw,4rem)}
   font-size:clamp(1.6rem,3.8vw,2.9rem);line-height:1.18;letter-spacing:-0.015em;max-width:18ch}
 .about-grid h2 em{font-style:italic;color:var(--ember)}
 .about-grid h2 .sig{color:var(--signal)}
+.beyond-copy h2 .sig{color:var(--signal)}
 .about-aside{font-size:0.98rem;color:var(--paper-dim);display:flex;flex-direction:column;gap:1.4rem}
 .about-aside .row{display:flex;justify-content:space-between;gap:1rem;
   border-bottom:1px solid var(--line);padding-bottom:0.8rem}
@@ -310,6 +311,42 @@ footer{border-top:1px solid var(--line);padding:1.6rem clamp(1.2rem,5vw,4rem);
 .edu-gpa{text-align:right;font-family:"JetBrains Mono",monospace;color:var(--mute);font-size:0.72rem;letter-spacing:0.04em}
 .edu-gpa b{display:block;font-family:"Bricolage Grotesque";font-size:1.7rem;color:var(--paper);font-weight:600;margin-bottom:0.2rem}
 .edu h4{font-family:"JetBrains Mono",monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin:1.7rem 0 0.85rem}
+/* graduation photos inside the education card */
+.edu-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.1rem}
+@media(max-width:560px){.edu-photos{grid-template-columns:1fr}}
+.edu-photos figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3)}
+.edu-photos img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;
+  filter:grayscale(0.85) contrast(1.05) brightness(0.92);
+  transition:filter .6s var(--ease),transform .7s var(--ease)}
+.edu-photos figure:hover img{filter:grayscale(0) contrast(1) brightness(1);transform:scale(1.03)}
+.edu-photos figcaption{font-family:"JetBrains Mono",monospace;font-size:0.62rem;letter-spacing:0.04em;
+  color:var(--mute);padding:0.6rem 0.75rem 0.7rem;line-height:1.45}
+
+/* ------------------------------ beyond the data ------------------------- */
+.beyond{background:var(--ink-2);border-top:1px solid var(--line)}
+.beyond-grid{max-width:1180px;margin:0 auto;display:grid;
+  grid-template-columns:0.9fr 1.1fr;gap:clamp(2rem,6vw,4rem);align-items:center}
+@media(max-width:860px){.beyond-grid{grid-template-columns:1fr;gap:2.4rem}}
+.beyond-photo{margin:0;position:relative;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);background:var(--ink-3)}
+.beyond-photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;
+  filter:grayscale(0.7) contrast(1.06) brightness(0.92);
+  transition:filter .7s var(--ease),transform .9s var(--ease)}
+.beyond-photo:hover img{filter:grayscale(0) contrast(1) brightness(1);transform:scale(1.04)}
+.beyond-photo figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  font-family:"JetBrains Mono",monospace;font-size:0.64rem;letter-spacing:0.05em;color:var(--paper-dim);
+  padding:2.4rem 1rem 0.9rem;background:linear-gradient(to top,rgba(11,12,16,0.92),transparent)}
+.beyond-copy h2{font-family:"Bricolage Grotesque";font-weight:500;letter-spacing:-0.015em;
+  font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.1}
+.beyond-copy p{color:var(--paper-dim);font-size:1rem;margin-top:1.1rem;max-width:54ch;line-height:1.6}
+.fact{display:flex;align-items:baseline;gap:1.1rem;margin-top:1.8rem;padding:1.2rem 1.3rem;
+  border:1px solid rgba(255,106,61,0.3);border-radius:14px;
+  background:linear-gradient(120deg,rgba(255,106,61,0.08),transparent 70%)}
+.fact b{font-family:"Bricolage Grotesque";font-weight:600;font-size:clamp(1.6rem,4vw,2.3rem);
+  color:var(--ember);line-height:1;white-space:nowrap}
+.fact span{color:var(--paper-dim);font-size:0.9rem;line-height:1.5}
+.fact span i{display:block;font-family:"JetBrains Mono",monospace;font-style:normal;
+  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mute);margin-bottom:0.3rem}
 .ach-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 @media(max-width:640px){.ach-grid{grid-template-columns:1fr}}
 .ach{border:1px solid var(--line);border-radius:14px;padding:1.3rem;background:var(--ink-2);display:flex;gap:1rem;align-items:flex-start}
@@ -667,6 +704,17 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         </div>
         <h4>Honors</h4>
         <div class="chips"><span class="chip">Magna Cum Laude</span><span class="chip">Dean's List — 5 semesters</span></div>
+        <h4>Commencement · May 2026</h4>
+        <div class="edu-photos">
+          <figure>
+            <img src="assets/grad-old-main.webp" alt="Pavan in cap and gown beside the Normal School 1894 stone at Old Main, ASU Tempe" loading="lazy" decoding="async" style="object-position:50% 35%" />
+            <figcaption>Old Main · ASU Tempe</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/grad-class-of-2026.webp" alt="Pavan in cap and gown celebrating at the ASU Class of 2026 sign" loading="lazy" decoding="async" style="object-position:50% 40%" />
+            <figcaption>Class of 2026</figcaption>
+          </figure>
+        </div>
         <h4>Relevant coursework</h4>
         <div class="chips">
           <span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Database Management</span><span class="chip">Foundations of Machine Learning</span><span class="chip">Applied Linear Algebra</span><span class="chip">Probability &amp; Statistics</span><span class="chip">Statistical Modeling &amp; Inference</span><span class="chip">Data in R &amp; Python</span><span class="chip">Data Visualization</span><span class="chip">Object Oriented Programming</span>
@@ -719,6 +767,28 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="ic">🤖</span>
         <div><h3>Claude 101</h3><div class="org">Anthropic</div><div class="dt">2026</div><span class="go">View certificate ↗</span></div>
       </a>
+    </div>
+  </section>
+
+  <!-- BEYOND THE DATA -->
+  <section class="beyond" id="beyond">
+    <div class="section-head reveal"><h2>Beyond the Data</h2><span class="eyebrow">Off the clock</span></div>
+    <div class="beyond-grid">
+      <figure class="beyond-photo reveal">
+        <img src="assets/rocky-mountain-national-park.webp" alt="Pavan standing on a frozen alpine lake in Rocky Mountain National Park, Colorado" loading="lazy" decoding="async" />
+        <figcaption>Rocky Mountain National Park · Colorado</figcaption>
+      </figure>
+      <div class="beyond-copy">
+        <h2 class="reveal">When I'm not in a query editor, I'm usually somewhere with worse <span class="sig">signal</span> and a better <em>view</em>.</h2>
+        <p class="reveal">I travel whenever I get the chance, and the trips I like most are the ones that involve a trailhead — national parks, long climbs, and the kind of cold that makes you check the forecast twice. Same instinct as the work, really: pick a hard problem, break it into switchbacks, keep moving.</p>
+        <div class="fact reveal">
+          <b>12,633 ft</b>
+          <span><i>Fun fact</i>I've hiked Humphreys Peak, the highest point in Arizona.</span>
+        </div>
+        <div class="chips reveal" style="margin-top:1.6rem">
+          <span class="chip">Travel</span><span class="chip">Hiking</span><span class="chip">National Parks</span><span class="chip">Adventure Sports</span><span class="chip">Photography</span>
+        </div>
+      </div>
     </div>
   </section>
 
