@@ -128,9 +128,20 @@ section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.2rem,5vw,4rem)}
 .hero h1 em{font-style:italic;font-weight:300}
 .hero h1 .sig{color:var(--signal)}
 .hero h1 .emb{color:var(--ember)}
-.hero-meta{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;margin-top:2.4rem;
+/* the title the page is applying under, cycling through the roles it covers */
+.hero-role{margin-top:1.9rem;font-family:"Bricolage Grotesque";font-weight:500;
+  font-size:clamp(1.2rem,3vw,2rem);letter-spacing:-0.01em;opacity:0}
+.role-mask{display:inline-block;overflow:hidden;height:1.3em;vertical-align:bottom}
+.role-list{display:block;will-change:transform}
+.role-list span{display:block;height:1.3em;line-height:1.3em;white-space:nowrap;color:var(--signal)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;margin-top:1.5rem;
   max-width:640px;opacity:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0.9rem;margin-top:2.2rem;opacity:0}
+.hero-actions .btn{display:inline-block}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .hero-meta p{max-width:34ch;color:var(--paper-dim);font-size:clamp(0.95rem,1.4vw,1.08rem)}
+.hero-meta p.mono{max-width:40ch}
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:0.6rem;color:var(--mute);opacity:0}
 .scroll-hint .line{width:1px;height:34px;background:linear-gradient(var(--mute),transparent);
@@ -416,9 +427,9 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
 <nav class="nav" aria-label="Primary">
   <a href="#top" class="brand" data-cursor>Pavan Mallipudi<sup>©26</sup></a>
   <div class="nav-right">
-    <a href="#work" class="nav-link" data-cursor>Work</a>
-    <a href="#experience" class="nav-link" data-cursor>Experience</a>
     <a href="#about" class="nav-link" data-cursor>About</a>
+    <a href="#experience" class="nav-link" data-cursor>Experience</a>
+    <a href="#work" class="nav-link" data-cursor>Work</a>
     <a href="#resume" class="nav-link" data-cursor>Resume</a>
     <a href="#contact" class="nav-link" data-cursor>Contact</a>
     <button class="sound-toggle" id="soundToggle" data-cursor aria-pressed="false">
@@ -436,9 +447,24 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="ln"><span>I engineer <em class="sig">signal</em></span></span>
         <span class="ln"><span>and tell the <em class="emb">story.</em></span></span>
       </h1>
+      <p class="hero-role" id="heroRole">
+        <span class="sr-only">Data Analyst, Data Scientist, Data Engineer, AI Engineer, AI / ML Engineer, Analytics Engineer</span>
+        <span class="role-mask" aria-hidden="true"><span class="role-list" id="roleList">
+          <span>Data Analyst</span>
+          <span>Data Scientist</span>
+          <span>Data Engineer</span>
+          <span>AI Engineer</span>
+          <span>AI / ML Engineer</span>
+          <span>Analytics Engineer</span>
+        </span></span>
+      </p>
       <div class="hero-meta" id="heroMeta">
-        <p>Data analyst, engineer, and scientist. I turn raw data into pipelines, models, and dashboards that move decisions.</p>
+        <p>I turn raw data into pipelines, models, and dashboards that move decisions.</p>
         <p class="mono" style="font-size:0.82rem;color:var(--mute)">B.S. Computer Science · Data Science<br/>Arizona State University, 2026</p>
+      </div>
+      <div class="hero-actions" id="heroActions">
+        <a class="btn solid" href="resume.pdf" download="Mallipudi_Pavan_Data_Resume.pdf" data-cursor>Download resume</a>
+        <a class="btn" href="#work" data-cursor>See the work</a>
       </div>
     </div>
     <div class="scroll-hint" id="scrollHint"><span class="eyebrow">Scroll</span><span class="line"></span></div>
@@ -451,6 +477,151 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       <span>Data Analysis <span class="dot">/</span> Business Intelligence <span class="dot">/</span> Data Engineering <span class="dot">/</span> Machine Learning <span class="dot">/</span> Deep Learning <span class="dot">/</span> SQL <span class="dot">/</span> Pipelines <span class="dot">/</span> Dashboards <span class="dot">/</span> Statistics <span class="dot">/</span> Data Analysis <span class="dot">/</span> Business Intelligence <span class="dot">/</span> Data Engineering <span class="dot">/</span> Machine Learning <span class="dot">/</span> Deep Learning <span class="dot">/</span> SQL <span class="dot">/</span> Pipelines <span class="dot">/</span> Dashboards <span class="dot">/</span> Statistics <span class="dot">/</span> </span>
     </div>
   </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <!-- PORTRAIT: your photo loads from profile.jpg (place it beside this file).
+           If it's missing, the placeholder below shows instead. Duotone + feather are automatic. -->
+      <div class="about-portrait reveal">
+        <div class="portrait-frame" id="portraitFrame" data-cursor>
+          <svg class="portrait-media" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgb(74,78,86)"/>
+                <stop offset="1" stop-color="rgb(16,18,24)"/>
+              </linearGradient>
+              <radialGradient id="pl" cx="0.5" cy="0.36" r="0.55">
+                <stop offset="0" stop-color="rgb(150,150,150)"/>
+                <stop offset="1" stop-color="rgb(60,60,66)"/>
+              </radialGradient>
+            </defs>
+            <rect width="800" height="1000" fill="url(#pg)"/>
+            <circle cx="400" cy="370" r="160" fill="url(#pl)"/>
+            <path d="M170 1000 q230 -360 460 0 z" fill="rgb(96,98,104)"/>
+            <text x="400" y="640" font-family="monospace" font-size="26" fill="rgb(168,168,170)" text-anchor="middle">add your photo</text>
+            <text x="400" y="676" font-family="monospace" font-size="15" fill="rgb(120,120,124)" text-anchor="middle">replace .portrait-media</text>
+          </svg>
+          <img class="portrait-media" src="assets/profile.jpg" alt="Pavan Venkata Manjunath Mallipudi" loading="lazy" decoding="async" style="object-position:50% 45%" onerror="this.remove()" />
+          <div class="portrait-grain" aria-hidden="true"></div>
+          <div class="portrait-veil" aria-hidden="true"></div>
+          <span class="portrait-label mono">Pavan Mallipudi · Tempe, AZ</span>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <h2 class="reveal">One instinct across the whole stack: take the noise, find the <span class="sig">signal</span>, and turn it into a decision someone can <em>act on</em>.</h2>
+        <div class="about-aside reveal">
+          <p>I work end to end, building the pipelines and models that move data, then the analysis and dashboards that make it usable. The part I care about most is where a number turns into a decision.</p>
+          <div class="row"><span>Focus</span><span>Analytics · Engineering · BI</span></div>
+          <div class="row"><span>Based</span><span>Tempe, AZ</span></div>
+          <div class="row"><span>Status</span><span>Open to roles</span></div>
+          <div class="row"><span>Work auth</span><span>Approved OPT · 3-yr STEM</span></div>
+          <div class="row"><span>Stack</span><span>Python · SQL · Spark · dbt · BI</span></div>
+          <div class="row"><span>Certified</span><span>AWS AI &amp; Cloud Practitioner</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNAPSHOT -->
+  <section id="snapshot">
+    <div class="stats reveal">
+      <div class="stat"><div class="n">3.76<span style="color:var(--mute);font-size:0.55em"> /4.0</span></div><div class="l">GPA · Dean's List</div></div>
+      <div class="stat"><div class="n"><span class="sig">10+</span></div><div class="l">Projects shipped</div></div>
+      <div class="stat"><div class="n">2<span style="color:var(--mute);font-size:0.55em"> yrs</span></div><div class="l">Experience</div></div>
+      <div class="stat"><div class="n"><span class="emb">20+</span></div><div class="l">Technologies</div></div>
+    </div>
+    <div class="section-head reveal" style="margin:3rem auto 1.2rem"><h2 style="font-size:clamp(1.4rem,3.4vw,2.2rem)">Areas of interest</h2></div>
+    <div class="chips reveal" style="max-width:1180px;margin:0 auto">
+      <span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Data Engineering</span><span class="chip">Data Visualization</span><span class="chip">Statistical Analysis</span><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">AI / LLMs</span><span class="chip">Cloud &amp; Big Data</span><span class="chip">MLOps</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-head reveal"><h2>Education</h2><span class="eyebrow">Academic background</span></div>
+    <div class="edu-grid">
+      <figure class="edu-photo reveal">
+        <img src="assets/grad-class-of-2026.webp" alt="Pavan in cap and gown celebrating at the ASU Class of 2026 sign" loading="lazy" decoding="async" />
+        <figcaption>Commencement, May 2026 &middot; Class of 2026</figcaption>
+      </figure>
+      <div class="edu-copy reveal">
+        <div class="edu-row">
+          <div>
+            <h3>Arizona State University</h3>
+            <p>B.S. Computer Science · Minor in Data Science · Magna Cum Laude</p>
+            <div class="tl-meta" style="margin-top:0.6rem">Tempe, AZ · Aug 2022 - May 2026 (Graduated)</div>
+          </div>
+          <div class="edu-gpa"><b>3.76 <span style="font-size:0.55em;color:var(--mute)">/ 4.0</span></b>GPA · 5× Dean's List</div>
+        </div>
+        <h4>Honors</h4>
+        <div class="chips"><span class="chip">Magna Cum Laude</span><span class="chip">Dean's List, 5 semesters</span></div>
+        <h4>Relevant coursework</h4>
+        <div class="chips">
+          <span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Database Management</span><span class="chip">Foundations of Machine Learning</span><span class="chip">Applied Linear Algebra</span><span class="chip">Probability &amp; Statistics</span><span class="chip">Statistical Modeling &amp; Inference</span><span class="chip">Data in R &amp; Python</span><span class="chip">Data Visualization</span><span class="chip">Object Oriented Programming</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head reveal"><h2>Experience</h2><span class="eyebrow">Work history</span></div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-head"><div><h3>Community Engagement Data Specialist</h3><div class="tl-co">ASU Social Embeddedness · Office of University Affairs · Tempe, AZ</div></div><span class="tl-meta">Sep 2024 - May 2026</span></div>
+        <div class="tl-grid">
+          <div class="tl-body">
+          <ul>
+            <li>Managed, validated, and standardized university-community engagement data on the Collaboratory platform, improving accuracy and consistency for cross-departmental reporting and stakeholder decision-making.</li>
+            <li>Automated reporting workflows and built Tableau and Power BI dashboards for 10+ ASU departments, surfacing engagement trends and KPIs while expanding self-service analytics adoption.</li>
+            <li>Led trainings and stakeholder demos for faculty and staff, translating complex data processes into actionable insights and promoting consistent data governance.</li>
+          </ul>
+          <div class="tl-tags"><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Data Governance</span></div>
+          </div>
+          <figure class="tl-photo">
+            <img src="assets/experience-asu-social-embeddedness.jpg" alt="The Social Embeddedness team at ASU&rsquo;s Office of University Affairs" loading="lazy" decoding="async" style="object-position:50% 50%" />
+            <figcaption>Social Embeddedness team · ASU Office of University Affairs</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><div><h3>Database &amp; Analytics Developer</h3><div class="tl-co">DigiClips (Capstone) · Tempe, AZ</div></div><span class="tl-meta">Aug 2025 - May 2026</span></div>
+        <div class="tl-grid">
+          <div class="tl-body">
+          <ul>
+            <li>Developed MySQL relational data workflows for high-volume media-transcript datasets, enabling scalable reporting and operational analytics.</li>
+            <li>Improved query performance and data reliability through schema normalization, indexing strategies, validation workflows, and automated cleanup and retention.</li>
+            <li>Designed structured backup and database-maintenance workflows for long-term storage reliability and analytics readiness.</li>
+          </ul>
+          <div class="tl-tags"><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">ETL</span><span class="tag">Analytics</span></div>
+          </div>
+          <figure class="tl-photo">
+            <img src="assets/experience-digiclips-capstone.jpg" alt="Presenting the DigiClips MySQL database poster at the ASU capstone showcase" loading="lazy" decoding="async" style="object-position:50% 42%" />
+            <figcaption>Capstone showcase · DigiClips MySQL database</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><div><h3>Jr. Data Analyst Intern</h3><div class="tl-co">Food Forest AI · Philadelphia, PA</div></div><span class="tl-meta">Jun 2025 - Jul 2025</span></div>
+        <div class="tl-grid">
+          <div class="tl-body">
+          <ul>
+            <li>Built Python (Pandas, Regex) cleaning and enrichment pipelines to standardize 500+ B2B company records, cutting manual effort ~75% and improving data quality for downstream analytics.</li>
+            <li>Developed executive KPI reports and Power BI dashboards visualizing supplier capabilities, certifications, and geographic trends, helping stakeholders spot market gaps and prioritize outreach.</li>
+            <li>Implemented SQL data-quality checks for duplicates, nulls, and schema inconsistencies, increasing reliability and supporting BI initiatives.</li>
+          </ul>
+          <div class="tl-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+          </div>
+          <figure class="tl-photo">
+            <img src="assets/experience-food-forest-ai.jpg" alt="Remote working session with the Food Forest AI team" loading="lazy" decoding="async" style="object-position:50% 50%" />
+            <figcaption>Weekly working session · Food Forest AI</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- WORK -->
   <section id="work">
@@ -581,124 +752,6 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-grid">
-      <!-- PORTRAIT: your photo loads from profile.jpg (place it beside this file).
-           If it's missing, the placeholder below shows instead. Duotone + feather are automatic. -->
-      <div class="about-portrait reveal">
-        <div class="portrait-frame" id="portraitFrame" data-cursor>
-          <svg class="portrait-media" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs>
-              <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="rgb(74,78,86)"/>
-                <stop offset="1" stop-color="rgb(16,18,24)"/>
-              </linearGradient>
-              <radialGradient id="pl" cx="0.5" cy="0.36" r="0.55">
-                <stop offset="0" stop-color="rgb(150,150,150)"/>
-                <stop offset="1" stop-color="rgb(60,60,66)"/>
-              </radialGradient>
-            </defs>
-            <rect width="800" height="1000" fill="url(#pg)"/>
-            <circle cx="400" cy="370" r="160" fill="url(#pl)"/>
-            <path d="M170 1000 q230 -360 460 0 z" fill="rgb(96,98,104)"/>
-            <text x="400" y="640" font-family="monospace" font-size="26" fill="rgb(168,168,170)" text-anchor="middle">add your photo</text>
-            <text x="400" y="676" font-family="monospace" font-size="15" fill="rgb(120,120,124)" text-anchor="middle">replace .portrait-media</text>
-          </svg>
-          <img class="portrait-media" src="assets/profile.jpg" alt="Pavan Venkata Manjunath Mallipudi" loading="lazy" decoding="async" style="object-position:50% 45%" onerror="this.remove()" />
-          <div class="portrait-grain" aria-hidden="true"></div>
-          <div class="portrait-veil" aria-hidden="true"></div>
-          <span class="portrait-label mono">Pavan Mallipudi · Tempe, AZ</span>
-        </div>
-      </div>
-
-      <div class="about-copy">
-        <h2 class="reveal">One instinct across the whole stack: take the noise, find the <span class="sig">signal</span>, and turn it into a decision someone can <em>act on</em>.</h2>
-        <div class="about-aside reveal">
-          <p>I work end to end, building the pipelines and models that move data, then the analysis and dashboards that make it usable. The part I care about most is where a number turns into a decision.</p>
-          <div class="row"><span>Focus</span><span>Analytics · Engineering · BI</span></div>
-          <div class="row"><span>Based</span><span>Tempe, AZ</span></div>
-          <div class="row"><span>Status</span><span>Open to roles</span></div>
-          <div class="row"><span>Work auth</span><span>Approved OPT · 3-yr STEM</span></div>
-          <div class="row"><span>Stack</span><span>Python · SQL · Spark · dbt · BI</span></div>
-          <div class="row"><span>Certified</span><span>AWS AI &amp; Cloud Practitioner</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SNAPSHOT -->
-  <section id="snapshot">
-    <div class="stats reveal">
-      <div class="stat"><div class="n">3.76<span style="color:var(--mute);font-size:0.55em"> /4.0</span></div><div class="l">GPA · Dean's List</div></div>
-      <div class="stat"><div class="n"><span class="sig">10+</span></div><div class="l">Projects shipped</div></div>
-      <div class="stat"><div class="n">2<span style="color:var(--mute);font-size:0.55em"> yrs</span></div><div class="l">Experience</div></div>
-      <div class="stat"><div class="n"><span class="emb">20+</span></div><div class="l">Technologies</div></div>
-    </div>
-    <div class="section-head reveal" style="margin:3rem auto 1.2rem"><h2 style="font-size:clamp(1.4rem,3.4vw,2.2rem)">Areas of interest</h2></div>
-    <div class="chips reveal" style="max-width:1180px;margin:0 auto">
-      <span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Data Engineering</span><span class="chip">Data Visualization</span><span class="chip">Statistical Analysis</span><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">AI / LLMs</span><span class="chip">Cloud &amp; Big Data</span><span class="chip">MLOps</span>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-head reveal"><h2>Experience</h2><span class="eyebrow">Work history</span></div>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Community Engagement Data Specialist</h3><div class="tl-co">ASU Social Embeddedness · Office of University Affairs · Tempe, AZ</div></div><span class="tl-meta">Sep 2024 - May 2026</span></div>
-        <div class="tl-grid">
-          <div class="tl-body">
-          <ul>
-            <li>Managed, validated, and standardized university-community engagement data on the Collaboratory platform, improving accuracy and consistency for cross-departmental reporting and stakeholder decision-making.</li>
-            <li>Automated reporting workflows and built Tableau and Power BI dashboards for 10+ ASU departments, surfacing engagement trends and KPIs while expanding self-service analytics adoption.</li>
-            <li>Led trainings and stakeholder demos for faculty and staff, translating complex data processes into actionable insights and promoting consistent data governance.</li>
-          </ul>
-          <div class="tl-tags"><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Data Governance</span></div>
-          </div>
-          <figure class="tl-photo">
-            <img src="assets/experience-asu-social-embeddedness.jpg" alt="The Social Embeddedness team at ASU&rsquo;s Office of University Affairs" loading="lazy" decoding="async" style="object-position:50% 50%" />
-            <figcaption>Social Embeddedness team · ASU Office of University Affairs</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Database &amp; Analytics Developer</h3><div class="tl-co">DigiClips (Capstone) · Tempe, AZ</div></div><span class="tl-meta">Aug 2025 - May 2026</span></div>
-        <div class="tl-grid">
-          <div class="tl-body">
-          <ul>
-            <li>Developed MySQL relational data workflows for high-volume media-transcript datasets, enabling scalable reporting and operational analytics.</li>
-            <li>Improved query performance and data reliability through schema normalization, indexing strategies, validation workflows, and automated cleanup and retention.</li>
-            <li>Designed structured backup and database-maintenance workflows for long-term storage reliability and analytics readiness.</li>
-          </ul>
-          <div class="tl-tags"><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">ETL</span><span class="tag">Analytics</span></div>
-          </div>
-          <figure class="tl-photo">
-            <img src="assets/experience-digiclips-capstone.jpg" alt="Presenting the DigiClips MySQL database poster at the ASU capstone showcase" loading="lazy" decoding="async" style="object-position:50% 42%" />
-            <figcaption>Capstone showcase · DigiClips MySQL database</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-head"><div><h3>Jr. Data Analyst Intern</h3><div class="tl-co">Food Forest AI · Philadelphia, PA</div></div><span class="tl-meta">Jun 2025 - Jul 2025</span></div>
-        <div class="tl-grid">
-          <div class="tl-body">
-          <ul>
-            <li>Built Python (Pandas, Regex) cleaning and enrichment pipelines to standardize 500+ B2B company records, cutting manual effort ~75% and improving data quality for downstream analytics.</li>
-            <li>Developed executive KPI reports and Power BI dashboards visualizing supplier capabilities, certifications, and geographic trends, helping stakeholders spot market gaps and prioritize outreach.</li>
-            <li>Implemented SQL data-quality checks for duplicates, nulls, and schema inconsistencies, increasing reliability and supporting BI initiatives.</li>
-          </ul>
-          <div class="tl-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
-          </div>
-          <figure class="tl-photo">
-            <img src="assets/experience-food-forest-ai.jpg" alt="Remote working session with the Food Forest AI team" loading="lazy" decoding="async" style="object-position:50% 50%" />
-            <figcaption>Weekly working session · Food Forest AI</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-head reveal"><h2>Skills</h2><span class="eyebrow">What I work with</span></div>
@@ -710,33 +763,6 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       <div class="card reveal"><h3>Data &amp; BI</h3><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Tableau Prep</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Matplotlib</span><span class="tag">D3.js</span><span class="tag">Jupyter</span></div></div>
       <div class="card reveal"><h3>Data Analytics</h3><div class="tags"><span class="tag">EDA</span><span class="tag">Statistical Analysis</span><span class="tag">A/B Testing</span><span class="tag">Cohort Analysis</span><span class="tag">KPI Reporting</span><span class="tag">Ad-hoc Analysis</span><span class="tag">Root Cause Analysis</span><span class="tag">Stakeholder Management</span></div></div>
       <div class="card reveal"><h3>GenAI &amp; AI Tooling</h3><div class="tags"><span class="tag">Claude Code</span><span class="tag">OpenAI Codex</span><span class="tag">Cursor</span><span class="tag">GitHub Copilot</span><span class="tag">Antigravity</span><span class="tag">Lovable</span><span class="tag">Anthropic Claude API</span><span class="tag">LangChain</span><span class="tag">Hugging Face</span><span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">Vector Search</span><span class="tag">FastAPI</span><span class="tag">Responsible AI</span></div></div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-head reveal"><h2>Education</h2><span class="eyebrow">Academic background</span></div>
-    <div class="edu-grid">
-      <figure class="edu-photo reveal">
-        <img src="assets/grad-class-of-2026.webp" alt="Pavan in cap and gown celebrating at the ASU Class of 2026 sign" loading="lazy" decoding="async" />
-        <figcaption>Commencement, May 2026 &middot; Class of 2026</figcaption>
-      </figure>
-      <div class="edu-copy reveal">
-        <div class="edu-row">
-          <div>
-            <h3>Arizona State University</h3>
-            <p>B.S. Computer Science · Minor in Data Science · Magna Cum Laude</p>
-            <div class="tl-meta" style="margin-top:0.6rem">Tempe, AZ · Aug 2022 - May 2026 (Graduated)</div>
-          </div>
-          <div class="edu-gpa"><b>3.76 <span style="font-size:0.55em;color:var(--mute)">/ 4.0</span></b>GPA · 5× Dean's List</div>
-        </div>
-        <h4>Honors</h4>
-        <div class="chips"><span class="chip">Magna Cum Laude</span><span class="chip">Dean's List, 5 semesters</span></div>
-        <h4>Relevant coursework</h4>
-        <div class="chips">
-          <span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Database Management</span><span class="chip">Foundations of Machine Learning</span><span class="chip">Applied Linear Algebra</span><span class="chip">Probability &amp; Statistics</span><span class="chip">Statistical Modeling &amp; Inference</span><span class="chip">Data in R &amp; Python</span><span class="chip">Data Visualization</span><span class="chip">Object Oriented Programming</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1178,13 +1204,15 @@ const Helix = (function(){
 /* ============================ INTRO ANIMATION ============================ */
 function runIntro(){
   if(REDUCED){
-    gsap.set(['#heroMeta','#scrollHint','#dragCue'],{opacity:1});
+    gsap.set(['#heroRole','#heroMeta','#heroActions','#scrollHint','#dragCue'],{opacity:1});
     gsap.set('.hero h1 .ln > span',{y:0});
     return;
   }
   const tl=gsap.timeline({delay:0.2});
   tl.to('.hero h1 .ln > span',{y:0,duration:1.1,stagger:0.12,ease:'power4.out'})
-    .to('#heroMeta',{opacity:1,y:0,duration:0.9,ease:'power2.out'},'-=0.5')
+    .to('#heroRole',{opacity:1,y:0,duration:0.8,ease:'power2.out'},'-=0.55')
+    .to('#heroMeta',{opacity:1,y:0,duration:0.9,ease:'power2.out'},'-=0.6')
+    .to('#heroActions',{opacity:1,y:0,duration:0.8,ease:'power2.out'},'-=0.65')
     .to('#scrollHint',{opacity:1,duration:0.8},'-=0.4')
     .to('#dragCue',{opacity:1,duration:0.8},'-=0.6');
 }
@@ -1251,6 +1279,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     e.preventDefault(); t.scrollIntoView({behavior:REDUCED?'auto':'smooth'});
   });
 });
+</script>
+
+<!-- Stands alone on purpose: the block above throws if the Three.js CDN is
+     unreachable, which would otherwise take the rotator down with it. -->
+<script>
+(function(){
+  const list=document.getElementById('roleList');
+  if(!list) return;
+  const roles=Array.from(list.children);
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(roles.length<2 || reduced) return;
+  const STEP='1.3em', HOLD=2200, SLIDE=700;
+  list.appendChild(roles[0].cloneNode(true));   // wrap without a backwards jump
+  let i=0;
+  setInterval(function(){
+    i++;
+    list.style.transition='transform '+SLIDE+'ms cubic-bezier(0.16,1,0.3,1)';
+    list.style.transform='translateY(calc('+STEP+' * -'+i+'))';
+    if(i===roles.length){
+      setTimeout(function(){
+        list.style.transition='none';
+        list.style.transform='translateY(0)';
+        i=0;
+      }, SLIDE+20);
+    }
+  }, HOLD);
+})();
 </script>
 <script>
 (function(){
