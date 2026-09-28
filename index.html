@@ -632,8 +632,22 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
     </div>
     <div class="work-list" id="workList">
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/rag-doc-assistant" target="_blank" rel="noopener noreferrer" data-cursor aria-label="RAG Document Assistant: open GitHub repository"><span>RAG Document Assistant</span></a>
+        <a class="work-cover" href="https://credit-decisioning-engine-zeta.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Credit Decisioning Engine: open live site"><span>Credit Decisioning Engine</span></a>
         <span class="work-idx">01</span>
+        <div class="work-main">
+          <h3>Credit Decisioning Engine</h3>
+          <p>An approve or decline engine trained on 618,584 LendingClub loans, scored the way a lender would judge it: profit, losses, and fairness. Time-based validation on application-time features only keeps leakage out, training on 2007 to 2013, tuning on 2014, and testing on unseen 2015 loans. XGBoost ranking with profit-optimized thresholds edges out LendingClub's own grades (ROC-AUC 0.687 against 0.678), and declining the riskiest 12% lifts 2015 profit by 13.8% at a 4% cost of funds. A fairness monitor reports the cost: under an 80% approval stress test, applicants earning under $40K are approved at 0.53 times the top income band's rate.</p>
+          <div class="work-links">
+            <a class="repo" href="https://github.com/pavanmanjunath18/credit-decisioning-engine" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
+            <a class="live" href="https://credit-decisioning-engine-zeta.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
+          </div>
+        </div>
+        <div class="work-tags"><span class="tag">XGBoost</span><span class="tag">Credit Risk</span><span class="tag">Fairness</span></div>
+        <span class="work-arrow">↗</span>
+      </article>
+      <article class="work-item reveal">
+        <a class="work-cover" href="https://github.com/pavanmanjunath18/rag-doc-assistant" target="_blank" rel="noopener noreferrer" data-cursor aria-label="RAG Document Assistant: open GitHub repository"><span>RAG Document Assistant</span></a>
+        <span class="work-idx">02</span>
         <div class="work-main">
           <h3>RAG Document Assistant</h3>
           <p>Ask questions about your own PDFs and get answers grounded in them, with every claim traceable to the chunk it came from. Runs entirely on your machine: MiniLM embeddings, a Chroma vector store, and Qwen2.5-1.5B for generation, behind a FastAPI service with background ingestion jobs and duplicate-safe re-uploads. An evaluation harness measures the thing that matters: retrieval lifts the benchmark set from 1/8 to 6/8 correct answers.</p>
@@ -646,7 +660,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/SmartBudget" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SmartBudget: open GitHub repository"><span>SmartBudget</span></a>
-        <span class="work-idx">02</span>
+        <span class="work-idx">03</span>
         <div class="work-main">
           <h3>SmartBudget</h3>
           <p>Double-entry bookkeeping for freelancers and small businesses. Bank CSV import with duplicate detection, categorization that tries user rules and a vendor cache before falling back to an LLM, invoices and AR aging, bank reconciliation, and a profit &amp; loss, balance sheet and cash flow computed straight from the ledger. FastAPI and PostgreSQL behind a React front end, multi-tenant throughout, with 153 backend tests including tenancy isolation for every resource.</p>
@@ -659,7 +673,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Plant Disease Classifier: open GitHub repository"><span>Plant Disease Classifier</span></a>
-        <span class="work-idx">03</span>
+        <span class="work-idx">04</span>
         <div class="work-main">
           <h3>Plant Disease Classifier</h3>
           <p>A deep-learning system that identifies 38 plant-leaf disease classes across 14 crops from a single photo, using EfficientNet-B0 transfer learning on PlantVillage in two phases, selected on validation macro F1, reaching 98.21% test accuracy (0.9765 macro F1) with a 4.06M-parameter model. Runs tracked in Weights &amp; Biases and served through a Streamlit app that flags low-confidence predictions.</p>
@@ -672,7 +686,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="ReadmitScope US: open live site"><span>ReadmitScope US</span></a>
-        <span class="work-idx">04</span>
+        <span class="work-idx">05</span>
         <div class="work-main">
           <h3>ReadmitScope US</h3>
           <p>An end-to-end healthcare analytics project on CMS Medicare readmissions, covering live CMS data ingestion, cleaning, QA logs, statistical analysis, hospital ownership and star-rating enrichment, and a deployed React dashboard for exploring excess readmission patterns.</p>
@@ -686,7 +700,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="CardioScope 3D: open live site"><span>CardioScope 3D</span></a>
-        <span class="work-idx">05</span>
+        <span class="work-idx">06</span>
         <div class="work-main">
           <h3>CardioScope 3D</h3>
           <p>An interactive 3D cardiovascular risk explorer built on 297 real patients as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model (ROC-AUC 0.924).</p>
@@ -700,7 +714,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Enterprise Data Lakehouse Integration Platform: open GitHub repository"><span>Enterprise Data Lakehouse Integration Platform</span></a>
-        <span class="work-idx">06</span>
+        <span class="work-idx">07</span>
         <div class="work-main">
           <h3>Enterprise Data Lakehouse Integration Platform</h3>
           <p>An end-to-end Databricks lakehouse with Bronze, Silver, and Gold layers integrating multiple business systems. PySpark and Delta Lake MERGE for incremental loads, schema harmonization, and data-quality validation from AWS S3, governed by Unity Catalog.</p>
@@ -713,7 +727,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SaaS Revenue and Churn Intelligence Platform: open GitHub repository"><span>SaaS Revenue and Churn Intelligence Platform</span></a>
-        <span class="work-idx">07</span>
+        <span class="work-idx">08</span>
         <div class="work-main">
           <h3>SaaS Revenue &amp; Churn Intelligence Platform</h3>
           <p>A PostgreSQL MRR state machine built from window functions and CTEs classifying 50K+ customer-months into revenue-movement categories for NRR, GRR, churn, and cohort reporting. Surfaced that payment failure predicts churn 3× better than any other signal, validated by 23 automated data-quality assertions.</p>
@@ -726,7 +740,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Stock Trading Analysis Dashboard: open GitHub repository"><span>Stock Trading Analysis Dashboard</span></a>
-        <span class="work-idx">08</span>
+        <span class="work-idx">09</span>
         <div class="work-main">
           <h3>Stock Trading Analysis Dashboard</h3>
           <p>A real-time stock dashboard in Streamlit and Plotly, with live OHLCV data with locally computed indicators (SMA, Bollinger Bands, RSI, volume ratio), plus a context-aware AI market assistant grounded in live S&amp;P 500, Nasdaq, and Dow data.</p>
@@ -739,7 +753,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       </article>
       <article class="work-item reveal">
         <a class="work-cover" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor aria-label="AI Job Market Intelligence Dashboard: open live site"><span>AI Job Market Intelligence Dashboard</span></a>
-        <span class="work-idx">09</span>
+        <span class="work-idx">10</span>
         <div class="work-main">
           <h3>AI Job Market Intelligence Dashboard</h3>
           <p>An ObservableHQ dashboard analyzing 90K+ global AI job records for salary trends, hiring difficulty, and workforce dynamics. Found that roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
