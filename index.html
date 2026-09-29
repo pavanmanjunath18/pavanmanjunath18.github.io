@@ -183,44 +183,52 @@ section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.2rem,5vw,4rem)}
 @media (pointer:fine){.filter-chip{cursor:none}}
 .work-count{max-width:1180px;margin:0 auto 1.5rem;font-size:0.68rem;letter-spacing:0.04em;
   color:var(--mute);min-height:1.1em;line-height:1.1}
-.work-list{max-width:1180px;margin:0 auto;border-top:1px solid var(--line)}
-.work-roles{font-family:"JetBrains Mono",monospace;font-size:0.63rem;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--signal);opacity:0.75;margin-top:0.5rem}
+.work-list{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1rem;align-items:stretch}
+@media(max-width:860px){.work-list{grid-template-columns:1fr}}
 .work-item[hidden]{display:none}
-.work-item{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.4rem 2rem;align-items:center;
-  padding:1.7rem 0.4rem;border-bottom:1px solid var(--line);position:relative;
-  text-decoration:none;color:inherit;transition:padding .5s var(--ease)}
-.work-item::before{content:"";position:absolute;inset:0;background:var(--ink-3);
-  transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease);z-index:-1}
-.work-item:hover{padding-left:1.4rem;padding-right:1.4rem}
-.work-item:hover::before{transform:scaleY(1)}
-.work-idx{font-family:"JetBrains Mono",monospace;font-size:0.78rem;color:var(--mute)}
+
+/* each project is a card: index and arrow on the top row, copy in the middle,
+   tags pinned to the bottom so cards in a row line up */
+.work-item{display:grid;grid-template-columns:1fr auto;
+  grid-template-areas:"idx arrow" "main main" "tags tags";
+  grid-template-rows:auto 1fr auto;gap:0.55rem 1rem;
+  padding:1.5rem 1.4rem;border:1px solid var(--line);border-radius:14px;
+  background:var(--ink-2);position:relative;isolation:isolate;
+  text-decoration:none;color:inherit;
+  transition:border-color .4s var(--ease),transform .4s var(--ease),background .4s var(--ease)}
+.work-item:hover{border-color:rgba(236,231,221,0.26);background:var(--ink-3);transform:translateY(-3px)}
+
+.work-idx{grid-area:idx;font-family:"JetBrains Mono",monospace;font-size:0.72rem;color:var(--mute)}
+.work-arrow{grid-area:arrow;font-family:"JetBrains Mono",monospace;color:var(--mute);
+  transition:.4s var(--ease)}
+.work-item:hover .work-arrow{color:var(--ember);transform:translate(4px,-4px)}
+
+.work-main{grid-area:main}
 .work-main h3{font-family:"Bricolage Grotesque";font-weight:500;
-  font-size:clamp(1.3rem,3.2vw,2.1rem);letter-spacing:-0.01em;line-height:1.05}
-.work-main p{color:var(--paper-dim);font-size:0.92rem;margin-top:0.4rem;max-width:52ch}
-.work-tags{display:flex;gap:0.5rem;flex-wrap:wrap;justify-self:end;max-width:240px;justify-content:flex-end}
-.tag{font-family:"JetBrains Mono",monospace;font-size:0.66rem;letter-spacing:0.04em;
+  font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:-0.01em;line-height:1.1}
+.work-roles{font-family:"JetBrains Mono",monospace;font-size:0.6rem;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--signal);opacity:0.75;margin-top:0.45rem;line-height:1.5}
+.work-main p{color:var(--paper-dim);font-size:0.88rem;line-height:1.55;margin-top:0.7rem}
+
+.work-tags{grid-area:tags;display:flex;gap:0.45rem;flex-wrap:wrap;align-self:end;margin-top:1rem}
+.tag{font-family:"JetBrains Mono",monospace;font-size:0.63rem;letter-spacing:0.04em;
   text-transform:uppercase;color:var(--paper-dim);border:1px solid var(--line);
   padding:0.3em 0.7em;border-radius:100px;white-space:nowrap}
 .work-item:hover .tag{border-color:rgba(236,231,221,0.28)}
-.work-arrow{font-family:"JetBrains Mono",monospace;color:var(--mute);transition:.4s var(--ease)}
-.work-item:hover .work-arrow{color:var(--ember);transform:translate(4px,-4px)}
-/* whole row is clickable (primary destination) while the explicit repo/live
-   links below the copy stay individually targetable on top of it */
-.work-cover{position:absolute;inset:0;z-index:1;border-radius:2px}
+
+/* the whole card is clickable (primary destination) while the repo and live
+   links stay individually targetable on top of it */
+.work-cover{position:absolute;inset:0;z-index:1;border-radius:14px}
 .work-cover span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .work-cover:focus-visible{outline:1px solid var(--signal);outline-offset:-4px}
-.work-links{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:0.85rem}
+.work-links{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:0.9rem}
 .work-links a{position:relative;z-index:2;font-family:"JetBrains Mono",monospace;
-  font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);
+  font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);
   text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;
   transition:.35s var(--ease)}
 .work-links a:hover,.work-links a:focus-visible{color:var(--signal);border-bottom-color:var(--signal)}
 .work-links a.live:hover,.work-links a.live:focus-visible{color:var(--ember);border-bottom-color:var(--ember)}
-@media(max-width:760px){
-  .work-item{grid-template-columns:auto 1fr auto;}
-  .work-tags{display:none}
-}
 
 /* --------------------------------- about --------------------------------- */
 .about{background:var(--ink-2);border-top:1px solid var(--line)}
@@ -662,7 +670,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>Credit Decisioning Engine</h3>
           <div class="work-roles">Data Science &amp; ML · Data Analytics &amp; BI</div>
-          <p>An approve or decline engine trained on 618,584 LendingClub loans, scored the way a lender would judge it: profit, losses, and fairness. Time-based validation on application-time features only keeps leakage out, training on 2007 to 2013, tuning on 2014, and testing on unseen 2015 loans. XGBoost ranking with profit-optimized thresholds edges out LendingClub's own grades (ROC-AUC 0.687 against 0.678), and declining the riskiest 12% lifts 2015 profit by 13.8% at a 4% cost of funds. A fairness monitor reports the cost: under an 80% approval stress test, applicants earning under $40K are approved at 0.53 times the top income band's rate.</p>
+          <p>Approve or decline, scored on profit and fairness rather than accuracy alone. XGBoost over 618,584 LendingClub loans with time-based validation; declining the riskiest 12% lifts 2015 profit by 13.8%. A fairness monitor reports who that costs.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/credit-decisioning-engine" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://credit-decisioning-engine-zeta.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -677,7 +685,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>RAG Document Assistant</h3>
           <div class="work-roles">AI Engineering · Software Engineering</div>
-          <p>Ask questions about your own PDFs and get answers grounded in them, with every claim traceable to the chunk it came from. Runs entirely on your machine: MiniLM embeddings, a Chroma vector store, and Qwen2.5-1.5B for generation, behind a FastAPI service with background ingestion jobs and duplicate-safe re-uploads. An evaluation harness measures the thing that matters: retrieval lifts the benchmark set from 1/8 to 6/8 correct answers.</p>
+          <p>Ask questions about your own PDFs and get answers traceable to the exact chunk. Runs fully local: MiniLM embeddings, Chroma, and Qwen2.5-1.5B behind FastAPI. Retrieval takes the benchmark set from 1/8 to 6/8 correct.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/rag-doc-assistant" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -691,7 +699,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>SmartBudget</h3>
           <div class="work-roles">Software Engineering · Data Engineering · AI Engineering</div>
-          <p>Double-entry bookkeeping for freelancers and small businesses. Bank CSV import with duplicate detection, categorization that tries user rules and a vendor cache before falling back to an LLM, invoices and AR aging, bank reconciliation, and a profit &amp; loss, balance sheet and cash flow computed straight from the ledger. FastAPI and PostgreSQL behind a React front end, multi-tenant throughout, with 153 backend tests including tenancy isolation for every resource.</p>
+          <p>Double-entry bookkeeping for freelancers. Bank CSV import with duplicate detection, rules-then-LLM categorization, invoices and AR aging, and statements built straight from the ledger. FastAPI, PostgreSQL and React, multi-tenant, 153 backend tests.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/SmartBudget" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://smartbudget-vert-ten.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -706,7 +714,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>Plant Disease Classifier</h3>
           <div class="work-roles">Data Science &amp; ML</div>
-          <p>A deep-learning system that identifies 38 plant-leaf disease classes across 14 crops from a single photo, using EfficientNet-B0 transfer learning on PlantVillage in two phases, selected on validation macro F1, reaching 98.21% test accuracy (0.9765 macro F1) with a 4.06M-parameter model. Runs tracked in Weights &amp; Biases and served through a Streamlit app that flags low-confidence predictions.</p>
+          <p>Identifies 38 leaf diseases across 14 crops from a single photo. EfficientNet-B0 transfer learning on PlantVillage, 98.21% test accuracy from a 4.06M-parameter model, served through a Streamlit app that flags low confidence.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -720,7 +728,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>ReadmitScope US</h3>
           <div class="work-roles">Data Analytics &amp; BI · Data Science &amp; ML</div>
-          <p>An end-to-end healthcare analytics project on CMS Medicare readmissions, covering live CMS data ingestion, cleaning, QA logs, statistical analysis, hospital ownership and star-rating enrichment, and a deployed React dashboard for exploring excess readmission patterns.</p>
+          <p>CMS Medicare readmissions end to end: live ingestion, cleaning and QA, statistical testing, and ownership and star-rating enrichment, in a deployed React dashboard for exploring excess readmission patterns.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/readmitscope" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -735,7 +743,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>CardioScope 3D</h3>
           <div class="work-roles">Data Science &amp; ML · Data Analytics &amp; BI</div>
-          <p>An interactive 3D cardiovascular risk explorer built on 297 real patients as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model (ROC-AUC 0.924).</p>
+          <p>297 real patients as an orbitable 3D point cloud, with PCA, k-means clustering, and a logistic-regression risk model at ROC-AUC 0.924.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/cardioscope-3d" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
             <a class="live" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
@@ -750,7 +758,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>Enterprise Data Lakehouse Integration Platform</h3>
           <div class="work-roles">Data Engineering · Data Analytics &amp; BI</div>
-          <p>An end-to-end Databricks lakehouse with Bronze, Silver, and Gold layers integrating multiple business systems. PySpark and Delta Lake MERGE for incremental loads, schema harmonization, and data-quality validation from AWS S3, governed by Unity Catalog.</p>
+          <p>A Databricks lakehouse in Bronze, Silver and Gold layers. PySpark and Delta Lake MERGE for incremental loads, schema harmonization and data-quality validation from S3, governed by Unity Catalog.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -764,7 +772,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>SaaS Revenue &amp; Churn Intelligence Platform</h3>
           <div class="work-roles">Data Analytics &amp; BI · Data Engineering</div>
-          <p>A PostgreSQL MRR state machine built from window functions and CTEs classifying 50K+ customer-months into revenue-movement categories for NRR, GRR, churn, and cohort reporting. Surfaced that payment failure predicts churn 3× better than any other signal, validated by 23 automated data-quality assertions.</p>
+          <p>A PostgreSQL MRR state machine classifying 50K+ customer-months into revenue movements for NRR, GRR, churn and cohort reporting. Found that payment failure predicts churn 3&times; better than any other signal.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -778,7 +786,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>Stock Trading Analysis Dashboard</h3>
           <div class="work-roles">Data Analytics &amp; BI</div>
-          <p>A real-time stock dashboard in Streamlit and Plotly, with live OHLCV data with locally computed indicators (SMA, Bollinger Bands, RSI, volume ratio), plus a context-aware AI market assistant grounded in live S&amp;P 500, Nasdaq, and Dow data.</p>
+          <p>Live OHLCV data with locally computed SMA, Bollinger Bands, RSI and volume ratio, plus a market assistant grounded in live S&amp;P 500, Nasdaq and Dow data.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
           </div>
@@ -792,7 +800,7 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-main">
           <h3>AI Job Market Intelligence Dashboard</h3>
           <div class="work-roles">Data Analytics &amp; BI</div>
-          <p>An ObservableHQ dashboard analyzing 90K+ global AI job records for salary trends, hiring difficulty, and workforce dynamics. Found that roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
+          <p>90K+ global AI job records explored in ObservableHQ. Roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
           <div class="work-links">
             <a class="live" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor>Open dashboard ↗</a>
           </div>
