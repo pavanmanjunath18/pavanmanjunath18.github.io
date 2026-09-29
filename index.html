@@ -170,7 +170,23 @@ section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.2rem,5vw,4rem)}
   justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .section-head h2{font-family:"Bricolage Grotesque";font-weight:500;
   font-size:clamp(1.8rem,4.5vw,3.2rem);letter-spacing:-0.015em;line-height:1}
+/* discipline filter: lets a recruiter cut the list to their own role */
+.work-filter{max-width:1180px;margin:0 auto 0.8rem;display:flex;flex-wrap:wrap;gap:0.55rem}
+.filter-chip{font-family:"JetBrains Mono",monospace;font-size:0.66rem;letter-spacing:0.04em;
+  text-transform:uppercase;color:var(--paper-dim);background:transparent;
+  border:1px solid var(--line);padding:0.55em 1em;border-radius:100px;cursor:pointer;
+  transition:.3s var(--ease);white-space:nowrap}
+.filter-chip .n{color:var(--mute);margin-left:0.45em}
+.filter-chip:hover,.filter-chip:focus-visible{border-color:var(--paper-dim);color:var(--paper)}
+.filter-chip.is-active{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.filter-chip.is-active .n{color:var(--ink);opacity:0.55}
+@media (pointer:fine){.filter-chip{cursor:none}}
+.work-count{max-width:1180px;margin:0 auto 1.5rem;font-size:0.68rem;letter-spacing:0.04em;
+  color:var(--mute);min-height:1.1em;line-height:1.1}
 .work-list{max-width:1180px;margin:0 auto;border-top:1px solid var(--line)}
+.work-roles{font-family:"JetBrains Mono",monospace;font-size:0.63rem;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--signal);opacity:0.75;margin-top:0.5rem}
+.work-item[hidden]{display:none}
 .work-item{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.4rem 2rem;align-items:center;
   padding:1.7rem 0.4rem;border-bottom:1px solid var(--line);position:relative;
   text-decoration:none;color:inherit;transition:padding .5s var(--ease)}
@@ -630,12 +646,22 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
       <h2>Selected Work</h2>
       <span class="eyebrow">2024 - 2026 / Index</span>
     </div>
+    <div class="work-filter reveal" id="workFilter" role="group" aria-label="Filter projects by discipline">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All <span class="n">10</span></button>
+          <button class="filter-chip" type="button" data-filter="analytics" aria-pressed="false">Data Analytics &amp; BI <span class="n">7</span></button>
+          <button class="filter-chip" type="button" data-filter="ml" aria-pressed="false">Data Science &amp; ML <span class="n">4</span></button>
+          <button class="filter-chip" type="button" data-filter="engineering" aria-pressed="false">Data Engineering <span class="n">3</span></button>
+          <button class="filter-chip" type="button" data-filter="ai" aria-pressed="false">AI Engineering <span class="n">2</span></button>
+          <button class="filter-chip" type="button" data-filter="swe" aria-pressed="false">Software Engineering <span class="n">2</span></button>
+    </div>
+    <p class="work-count mono" id="workCount" role="status" aria-live="polite"></p>
     <div class="work-list" id="workList">
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="ml analytics">
         <a class="work-cover" href="https://credit-decisioning-engine-zeta.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Credit Decisioning Engine: open live site"><span>Credit Decisioning Engine</span></a>
         <span class="work-idx">01</span>
         <div class="work-main">
           <h3>Credit Decisioning Engine</h3>
+          <div class="work-roles">Data Science &amp; ML · Data Analytics &amp; BI</div>
           <p>An approve or decline engine trained on 618,584 LendingClub loans, scored the way a lender would judge it: profit, losses, and fairness. Time-based validation on application-time features only keeps leakage out, training on 2007 to 2013, tuning on 2014, and testing on unseen 2015 loans. XGBoost ranking with profit-optimized thresholds edges out LendingClub's own grades (ROC-AUC 0.687 against 0.678), and declining the riskiest 12% lifts 2015 profit by 13.8% at a 4% cost of funds. A fairness monitor reports the cost: under an 80% approval stress test, applicants earning under $40K are approved at 0.53 times the top income band's rate.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/credit-decisioning-engine" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -645,11 +671,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">XGBoost</span><span class="tag">Credit Risk</span><span class="tag">Fairness</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="ai swe">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/rag-doc-assistant" target="_blank" rel="noopener noreferrer" data-cursor aria-label="RAG Document Assistant: open GitHub repository"><span>RAG Document Assistant</span></a>
         <span class="work-idx">02</span>
         <div class="work-main">
           <h3>RAG Document Assistant</h3>
+          <div class="work-roles">AI Engineering · Software Engineering</div>
           <p>Ask questions about your own PDFs and get answers grounded in them, with every claim traceable to the chunk it came from. Runs entirely on your machine: MiniLM embeddings, a Chroma vector store, and Qwen2.5-1.5B for generation, behind a FastAPI service with background ingestion jobs and duplicate-safe re-uploads. An evaluation harness measures the thing that matters: retrieval lifts the benchmark set from 1/8 to 6/8 correct answers.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/rag-doc-assistant" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -658,11 +685,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">Vector Search</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="swe engineering ai">
         <a class="work-cover" href="https://smartbudget-vert-ten.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SmartBudget: open live site"><span>SmartBudget</span></a>
         <span class="work-idx">03</span>
         <div class="work-main">
           <h3>SmartBudget</h3>
+          <div class="work-roles">Software Engineering · Data Engineering · AI Engineering</div>
           <p>Double-entry bookkeeping for freelancers and small businesses. Bank CSV import with duplicate detection, categorization that tries user rules and a vendor cache before falling back to an LLM, invoices and AR aging, bank reconciliation, and a profit &amp; loss, balance sheet and cash flow computed straight from the ledger. FastAPI and PostgreSQL behind a React front end, multi-tenant throughout, with 153 backend tests including tenancy isolation for every resource.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/SmartBudget" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -672,11 +700,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="ml">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Plant Disease Classifier: open GitHub repository"><span>Plant Disease Classifier</span></a>
         <span class="work-idx">04</span>
         <div class="work-main">
           <h3>Plant Disease Classifier</h3>
+          <div class="work-roles">Data Science &amp; ML</div>
           <p>A deep-learning system that identifies 38 plant-leaf disease classes across 14 crops from a single photo, using EfficientNet-B0 transfer learning on PlantVillage in two phases, selected on validation macro F1, reaching 98.21% test accuracy (0.9765 macro F1) with a 4.06M-parameter model. Runs tracked in Weights &amp; Biases and served through a Streamlit app that flags low-confidence predictions.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/Plant_Disease_Classifier" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -685,11 +714,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">PyTorch</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="analytics ml">
         <a class="work-cover" href="https://readmitscope.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="ReadmitScope US: open live site"><span>ReadmitScope US</span></a>
         <span class="work-idx">05</span>
         <div class="work-main">
           <h3>ReadmitScope US</h3>
+          <div class="work-roles">Data Analytics &amp; BI · Data Science &amp; ML</div>
           <p>An end-to-end healthcare analytics project on CMS Medicare readmissions, covering live CMS data ingestion, cleaning, QA logs, statistical analysis, hospital ownership and star-rating enrichment, and a deployed React dashboard for exploring excess readmission patterns.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/readmitscope" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -699,11 +729,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">Python</span><span class="tag">Healthcare</span><span class="tag">React</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="ml analytics">
         <a class="work-cover" href="https://cardioscope-3d.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="CardioScope 3D: open live site"><span>CardioScope 3D</span></a>
         <span class="work-idx">06</span>
         <div class="work-main">
           <h3>CardioScope 3D</h3>
+          <div class="work-roles">Data Science &amp; ML · Data Analytics &amp; BI</div>
           <p>An interactive 3D cardiovascular risk explorer built on 297 real patients as an orbitable point cloud, with PCA, k-means clustering, and a logistic-regression risk model (ROC-AUC 0.924).</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/cardioscope-3d" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -713,11 +744,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">Three.js</span><span class="tag">React</span><span class="tag">ML</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="engineering analytics">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Enterprise Data Lakehouse Integration Platform: open GitHub repository"><span>Enterprise Data Lakehouse Integration Platform</span></a>
         <span class="work-idx">07</span>
         <div class="work-main">
           <h3>Enterprise Data Lakehouse Integration Platform</h3>
+          <div class="work-roles">Data Engineering · Data Analytics &amp; BI</div>
           <p>An end-to-end Databricks lakehouse with Bronze, Silver, and Gold layers integrating multiple business systems. PySpark and Delta Lake MERGE for incremental loads, schema harmonization, and data-quality validation from AWS S3, governed by Unity Catalog.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/enterprise-retail-lakehouse-aws-databricks" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -726,11 +758,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">Databricks</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="analytics engineering">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SaaS Revenue and Churn Intelligence Platform: open GitHub repository"><span>SaaS Revenue and Churn Intelligence Platform</span></a>
         <span class="work-idx">08</span>
         <div class="work-main">
           <h3>SaaS Revenue &amp; Churn Intelligence Platform</h3>
+          <div class="work-roles">Data Analytics &amp; BI · Data Engineering</div>
           <p>A PostgreSQL MRR state machine built from window functions and CTEs classifying 50K+ customer-months into revenue-movement categories for NRR, GRR, churn, and cohort reporting. Surfaced that payment failure predicts churn 3× better than any other signal, validated by 23 automated data-quality assertions.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/saas-revenue-churn-intelligence" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -739,11 +772,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">PostgreSQL</span><span class="tag">Streamlit</span><span class="tag">Analytics</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="analytics">
         <a class="work-cover" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor aria-label="Stock Trading Analysis Dashboard: open GitHub repository"><span>Stock Trading Analysis Dashboard</span></a>
         <span class="work-idx">09</span>
         <div class="work-main">
           <h3>Stock Trading Analysis Dashboard</h3>
+          <div class="work-roles">Data Analytics &amp; BI</div>
           <p>A real-time stock dashboard in Streamlit and Plotly, with live OHLCV data with locally computed indicators (SMA, Bollinger Bands, RSI, volume ratio), plus a context-aware AI market assistant grounded in live S&amp;P 500, Nasdaq, and Dow data.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/stock-trading-dashboard" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
@@ -752,11 +786,12 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="work-tags"><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">LLM</span></div>
         <span class="work-arrow">↗</span>
       </article>
-      <article class="work-item reveal">
+      <article class="work-item reveal" data-cats="analytics">
         <a class="work-cover" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor aria-label="AI Job Market Intelligence Dashboard: open live site"><span>AI Job Market Intelligence Dashboard</span></a>
         <span class="work-idx">10</span>
         <div class="work-main">
           <h3>AI Job Market Intelligence Dashboard</h3>
+          <div class="work-roles">Data Analytics &amp; BI</div>
           <p>An ObservableHQ dashboard analyzing 90K+ global AI job records for salary trends, hiring difficulty, and workforce dynamics. Found that roles requiring 3+ years command a 47% salary premium, with the US and Germany hardest to hire in.</p>
           <div class="work-links">
             <a class="live" href="https://observablehq.com/d/446b1a5b84c32ce5" target="_blank" rel="noopener noreferrer" data-cursor>Open dashboard ↗</a>
@@ -1300,6 +1335,45 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 <!-- Stands alone on purpose: the block above throws if the Three.js CDN is
      unreachable, which would otherwise take the rotator down with it. -->
+<script>
+/* Filter the project list by discipline. Counts are read from the cards
+   themselves so they cannot drift from what is actually on the page. */
+(function(){
+  const bar=document.getElementById('workFilter');
+  const status=document.getElementById('workCount');
+  if(!bar) return;
+  const items=Array.from(document.querySelectorAll('.work-item[data-cats]'));
+  const chips=Array.from(bar.querySelectorAll('.filter-chip'));
+
+  chips.forEach(chip=>{
+    const key=chip.dataset.filter;
+    const n=key==='all'?items.length:items.filter(i=>i.dataset.cats.split(' ').includes(key)).length;
+    const slot=chip.querySelector('.n');
+    if(slot) slot.textContent=n;
+    if(!n) chip.hidden=true;               // never offer an empty bucket
+  });
+
+  function apply(key,label){
+    items.forEach(i=>{
+      i.hidden = key!=='all' && !i.dataset.cats.split(' ').includes(key);
+    });
+    chips.forEach(c=>{
+      const on=c.dataset.filter===key;
+      c.classList.toggle('is-active',on);
+      c.setAttribute('aria-pressed',on?'true':'false');
+    });
+    const shown=items.filter(i=>!i.hidden).length;
+    status.textContent = key==='all' ? '' :
+      'Showing ' + shown + ' of ' + items.length + ' projects in ' + label + '.';
+  }
+
+  bar.addEventListener('click',e=>{
+    const chip=e.target.closest('.filter-chip');
+    if(!chip) return;
+    apply(chip.dataset.filter, chip.textContent.replace(/\s*\d+\s*$/,'').trim());
+  });
+})();
+</script>
 <script>
 (function(){
   const list=document.getElementById('roleList');
