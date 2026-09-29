@@ -592,9 +592,9 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <div class="tl-grid">
           <div class="tl-body">
           <ul>
-            <li>Engineered automated maintenance scripts and MySQL event schedulers to purge expired media files on a schedule, cutting storage overhead in a high-volume production environment.</li>
-            <li>Designed backend cleaning routines to eliminate duplicate records, resolve timestamp bugs, manage scheduled data dumps, and handle user-retention compliance.</li>
-            <li>Reverse-engineered complex relational schemas and authored high-performance stored procedures that sped up data retrieval and improved application search relevancy.</li>
+            <li>Automated nightly retention cleanup using MySQL Event Scheduler, purging ~20,000 expired metadata records monthly and cutting manual maintenance from 3 hours to 30 minutes per week.</li>
+            <li>Built data-quality routines across 12 MySQL tables, removing 4,500 duplicate records and correcting 2,000 timestamp inconsistencies, with automated weekly database dumps for backup and retention compliance.</li>
+            <li>Refactored 3 search stored procedures after reverse-engineering the relational schema, cutting median query latency 64% (1.8s → 650ms) on a 500K-record test database.</li>
           </ul>
           <div class="tl-tags"><span class="tag">MySQL</span><span class="tag">Stored Procedures</span><span class="tag">ETL</span><span class="tag">Data Quality</span></div>
           </div>
@@ -659,13 +659,14 @@ a.ach .go{display:block;color:var(--signal);font-family:"JetBrains Mono",monospa
         <span class="work-arrow">↗</span>
       </article>
       <article class="work-item reveal">
-        <a class="work-cover" href="https://github.com/pavanmanjunath18/SmartBudget" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SmartBudget: open GitHub repository"><span>SmartBudget</span></a>
+        <a class="work-cover" href="https://smartbudget-vert-ten.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor aria-label="SmartBudget: open live site"><span>SmartBudget</span></a>
         <span class="work-idx">03</span>
         <div class="work-main">
           <h3>SmartBudget</h3>
           <p>Double-entry bookkeeping for freelancers and small businesses. Bank CSV import with duplicate detection, categorization that tries user rules and a vendor cache before falling back to an LLM, invoices and AR aging, bank reconciliation, and a profit &amp; loss, balance sheet and cash flow computed straight from the ledger. FastAPI and PostgreSQL behind a React front end, multi-tenant throughout, with 153 backend tests including tenancy isolation for every resource.</p>
           <div class="work-links">
             <a class="repo" href="https://github.com/pavanmanjunath18/SmartBudget" target="_blank" rel="noopener noreferrer" data-cursor>GitHub repo ↗</a>
+            <a class="live" href="https://smartbudget-vert-ten.vercel.app" target="_blank" rel="noopener noreferrer" data-cursor>Live demo ↗</a>
           </div>
         </div>
         <div class="work-tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span></div>
