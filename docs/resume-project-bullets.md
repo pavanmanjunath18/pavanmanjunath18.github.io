@@ -26,9 +26,9 @@ Style rules: no em dashes or en dashes anywhere. Keep numbers exactly as written
 
 ## Enterprise Data Lakehouse Integration Platform | Databricks, PySpark, Delta Lake, AWS S3 | GitHub
 
-- Built an end-to-end Lakehouse data platform in Databricks using Bronze, Silver, and Gold layers to integrate and standardize data from multiple business systems, enabling a unified analytics environment for reporting and decision-making.
-- Developed PySpark ETL pipelines with Delta Lake MERGE operations for historical backfills, incremental processing, schema harmonization, data quality validation, and automated ingestion from AWS S3 into curated analytical datasets.
-- Designed interactive Databricks dashboards and analytics-ready Gold layer views, leveraging Unity Catalog governance and external S3 integrations to deliver scalable, reliable business insights across sales, customers, products, and revenue metrics.
+- Built a Bronze/Silver/Gold lakehouse in Databricks (PySpark, Delta Lake, Unity Catalog) merging an acquired company's 155 daily S3 order files (60K+ rows) with a parent company's monthly data into a star schema of 1 fact and 4 dimension tables.
+- Fixed 6 categories of data-quality defects in code, including mixed date formats, misspelled cities, negative prices, and non-numeric IDs, and deduplicated orders from 51,810 to 40,811 rows with Delta MERGE upserts so reruns never duplicate data.
+- Built incremental loading that recalculates only affected months (8,834 new rows into 612 monthly rows) and aggregated 40,811 cleaned daily orders to the parent's monthly grain (3,060 rows) behind a Gold-layer dashboard view.
 
 ## Plant Disease Classifier | PyTorch, EfficientNet-B0, Streamlit, Weights & Biases | GitHub
 
@@ -62,7 +62,7 @@ Style rules: no em dashes or en dashes anywhere. Keep numbers exactly as written
 - **CardioScope 3D:** The stack is React, TypeScript and Three.js, with PCA and k-means run in the browser (`ml-pca`, `ml-kmeans`) and the model fit offline by a Node script. It is not Python or scikit-learn. The 0.906 AUC is the cross-validated figure; the training-set fit (0.934) is optimistic.
 - **SmartBudget:** The README states 153 backend tests. About 125 test functions were counted directly, so parametrized cases likely make up the rest. "150+" holds either way. The frontend has 17 unit tests.
 - **Plant Disease Classifier:** 54,305 images across 38 classes and 14 crops. Test accuracy 98.21%, macro F1 0.9765, on a 4.06M parameter model.
-- **Enterprise Data Lakehouse:** Bullets are as originally written. "External S3 integrations" is not stated in the repo README, which says S3 landing zone and Unity Catalog, so confirm or trim it. Harder numbers available from the README if wanted: 124 historical backfill files (Jul to Nov 2025), 31 incremental files (Dec 2025), six documented data-quality failure modes fixed in code, and a dashboard showing 119.93B revenue across 54 customers.
+- **Enterprise Data Lakehouse:** Every row count was checked against recorded notebook outputs: 51,810 raw historical rows to 40,811 after deduplication to 3,060 monthly rows, and 8,834 raw incremental rows to 6,947 after deduplication to 612 monthly rows. The 155 files (124 historical + 31 incremental) come from the repo README and docs, not from a notebook output. The docs say six date formats but the code shows five, so avoid "six formats". Avoid quoting 54 unique customers from the dashboard, since it likely includes the 999999 placeholder ID. Other verified figures if needed: 39 to 35 customers and 20 to 18 products after deduplication, 7 city misspellings mapped to 3 cities, 119.93B revenue (INR) and 39.05M units on the dashboard.
 - **ReadmitScope US:** Correct figures are 2,833 hospitals, 9.2% of hospitals reporting 3+ conditions worse than expected on every one (about twice the 4.7% chance predicts), and the small-hospital effect being a reporting artifact (p=0.76). Do not use earlier figures such as 77.2%, 3,000+ hospitals or a 99.7% match rate.
 - **Subscription Churn Analytics:** The out-of-time AUC of 0.944 is on the portfolio card. The warehouse is built on real KKBox data, so the synthetic-data caveat that applied to the removed SaaS project does not apply here.
 
