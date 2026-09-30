@@ -44,9 +44,9 @@ Style rules: no em dashes or en dashes anywhere. Keep numbers exactly as written
 
 ## RAG Document Assistant | Python, Qwen2.5, ChromaDB, FastAPI | GitHub
 
-- Built a local retrieval-augmented generation service (Qwen2.5-1.5B, ChromaDB, MiniLM embeddings, FastAPI) that answers questions over Netflix's FY2025 10-K with cited source chunks, running fully offline with no API keys and covered by 171 tests.
-- Built an evaluation harness that grades answers with and without retrieval: correct answers rose from 1/8 to 6/8 on the benchmark set and reached 4/9 on 9 held-out questions, where the model declined 3 instead of guessing.
-- Diagnosed and fixed 4 pipeline failures (over-refusal from a strict prompt, a float32 memory crash on Apple GPU, a stale notebook cell that hid the real result, and the model summing debt figures the filing never totals), documenting each in a decisions log.
+- Built a fully offline retrieval-augmented generation service (Qwen2.5-1.5B, ChromaDB, MiniLM, FastAPI) that answers questions over Netflix's FY2025 10-K with cited sources, covered by 171 tests.
+- Built an evaluation harness comparing answers with and without retrieval: correct answers rose from 1/8 to 6/8, and on 9 held-out questions the model got 4 right and declined 3 rather than guessing.
+- Diagnosed and fixed 4 pipeline failures, including over-refusal from a too-strict prompt and the model inventing a debt total the filing never reports, documenting each in a decisions log.
 
 ## SmartBudget | React, FastAPI, PostgreSQL | Deployed Project
 
